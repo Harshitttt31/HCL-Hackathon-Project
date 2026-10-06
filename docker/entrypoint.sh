@@ -5,6 +5,10 @@ set -e
 case "$1" in
   api)
     if [ ! -f "${SQLITE_PATH:-/app/data/university.db}" ]; then
+      if [ ! -f data/source_register.csv ]; then
+        echo "first start: data/ is not in git, building the synthetic documents and CSVs"
+        python scripts/generate_synthetic.py --out data
+      fi
       echo "first start: loading documents, rules and students"
       python scripts/seed_db.py --data data
     fi

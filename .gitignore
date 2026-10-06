@@ -3,7 +3,5 @@
 __pycache__/
 *.pyc
 .pytest_cache/
-data/university.db
-data/chroma/*
-!data/chroma/.gitkeep
+data/
 storage/

@@ -17,6 +17,7 @@ Without Docker (no model needed, uses the mock language model and a hashing embe
 ```bash
 pip install -r requirements.txt
 cp .env.example .env              # then set MOCK_LLM=true and EMBEDDING_BACKEND=hashing for a fully offline run
+python scripts/generate_synthetic.py  # data/ is not in git: builds the documents, source register, rules and students
 python scripts/seed_db.py         # loads data/documents, source register, rules, students
 MOCK_LLM=true uvicorn app.main:app --port 8000
 API_URL=http://localhost:8000 streamlit run app/frontend/streamlit_app.py
@@ -47,6 +48,7 @@ you skipped `sentence-transformers`. On a CPU-only machine also raise `LLM_TIMEO
 
 ```powershell
 ollama pull llama3.1:8b                                    # or set LLM_MODEL in .env to another model you have pulled
+.\.venv\Scripts\python.exe scripts\generate_synthetic.py   # data\ is not in git: this builds the documents and CSVs
 .\.venv\Scripts\python.exe scripts\seed_db.py              # builds data\university.db and data\chroma (about 1 minute)
 .\.venv\Scripts\python.exe -m uvicorn app.main:app --port 8000
 # in a second terminal:
