@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="650" viewBox="0 0 760 650" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="650" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">Worked example: the minimum attendance answer changes on 2026-08-01</text>
+<g id="source"><rect x="24" y="56" width="238" height="40" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="40" y="80" font-size="13" font-weight="600" fill="#1F2328">Source</text>
+</g>
+<g id="asked-on-2026-07-31"><rect x="272" y="56" width="226" height="40" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="288" y="80" font-size="13" font-weight="600" fill="#1F2328">Asked on 2026-07-31</text>
+</g>
+<g id="asked-from-2026-08-01"><rect x="510" y="56" width="226" height="40" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="526" y="80" font-size="13" font-weight="600" fill="#1F2328">Asked from 2026-08-01</text>
+</g>
+<g id="acad-reg-2024-clause-7-2"><rect x="24" y="112" width="238" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="136" font-size="13" font-weight="600" fill="#1F2328">ACAD-REG-2024 clause 7.2</text>
+<text x="40" y="152" font-size="11.5" fill="#5B6470">Level 1 regulation: 75%</text>
+</g>
+<g id="wins--75"><rect x="272" y="112" width="226" height="72" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="288" y="136" font-size="13" font-weight="600" fill="#1F2328">Wins: 75%</text>
+</g>
+<g id="superseded--so-75--loses"><rect x="510" y="112" width="226" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="526" y="136" font-size="13" font-weight="600" fill="#1F2328">Superseded, so 75% loses</text>
+</g>
+<g id="acad-2026-08-clause-2-1"><rect x="24" y="200" width="238" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="224" font-size="13" font-weight="600" fill="#1F2328">ACAD-2026-08 clause 2.1</text>
+<text x="40" y="240" font-size="11.5" fill="#5B6470">Level 2: 80%, from 2026-08-01</text>
+</g>
+<g id="not-yet-in-force"><rect x="272" y="200" width="226" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="5 4"/>
+<text x="288" y="224" font-size="13" font-weight="600" fill="#1F2328">Not yet in force:</text>
+<text x="288" y="240" font-size="11.5" fill="#5B6470">Reported as upcoming</text>
+</g>
+<g id="wins--80"><rect x="510" y="200" width="226" height="72" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="526" y="224" font-size="13" font-weight="600" fill="#1F2328">Wins: 80%</text>
+</g>
+<g id="dept-faq-cse-clause-3-1"><rect x="24" y="288" width="238" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="312" font-size="13" font-weight="600" fill="#1F2328">DEPT-FAQ-CSE clause 3.1</text>
+<text x="40" y="328" font-size="11.5" fill="#5B6470">Level 4 guide: 65%</text>
+</g>
+<g id="outranked-by-authority"><rect x="272" y="288" width="226" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="288" y="312" font-size="13" font-weight="600" fill="#1F2328">Outranked by authority</text>
+</g>
+<g id="outranked-by-authority"><rect x="510" y="288" width="226" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="526" y="312" font-size="13" font-weight="600" fill="#1F2328">Outranked by authority</text>
+</g>
+<g id="student-forum-notes-1-1"><rect x="24" y="376" width="238" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="400" font-size="13" font-weight="600" fill="#1F2328">STUDENT-FORUM-NOTES 1.1</text>
+<text x="40" y="416" font-size="11.5" fill="#5B6470">Level 5 informal: 60%</text>
+</g>
+<g id="informational-only"><rect x="272" y="376" width="226" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="288" y="400" font-size="13" font-weight="600" fill="#1F2328">Informational only</text>
+</g>
+<g id="informational-only"><rect x="510" y="376" width="226" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="526" y="400" font-size="13" font-weight="600" fill="#1F2328">Informational only</text>
+</g>
+<path d="M385 448 L385 472" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M623 448 L623 472" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="answer--75"><rect x="272" y="472" width="226" height="72" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="288" y="496" font-size="13" font-weight="600" fill="#1F2328">Answer: 75%</text>
+<text x="288" y="512" font-size="11.5" fill="#5B6470">Cites ACAD-REG-2024,</text>
+<text x="288" y="528" font-size="11.5" fill="#5B6470">rule ATT-MIN-01</text>
+</g>
+<g id="answer--80"><rect x="510" y="472" width="226" height="72" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="526" y="496" font-size="13" font-weight="600" fill="#1F2328">Answer: 80%</text>
+<text x="526" y="512" font-size="11.5" fill="#5B6470">Cites ACAD-2026-08, rule</text>
+<text x="526" y="528" font-size="11.5" fill="#5B6470">ATT-MIN-02, notes the change</text>
+</g>
+<text x="24" y="576" font-size="11.5" fill="#5B6470">Applies to B.Tech CSE and ECE. A student in another programme, such as M.Tech CSE, still gets 75%.</text>
+<rect x="24" y="600" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="46" y="610" font-size="11.5" fill="#5B6470">Answer or winner</text>
+<rect x="166.44" y="600" width="16" height="12" rx="3" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="188.44" y="610" font-size="11.5" fill="#5B6470">Loses or ignored</text>
+<rect x="308.88" y="600" width="16" height="12" rx="3" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="5 4"/>
+<text x="330.88" y="610" font-size="11.5" fill="#5B6470">Not yet in force</text>
+</svg>

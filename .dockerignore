@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.git
+.env
+data/university.db
+data/chroma/
+.pytest_cache/

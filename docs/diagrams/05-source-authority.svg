@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="998" viewBox="0 0 760 998" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="998" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">Five tests in a fixed order decide which document wins; no model takes part</text>
+<g id="candidate-clauses"><rect x="90" y="56" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="80" font-size="13" font-weight="600" fill="#1F2328">Candidate clauses</text>
+<text x="106" y="96" font-size="11.5" fill="#5B6470">From retrieval and the rule registry</text>
+</g>
+<path d="M250 112 L250 132" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="scope-known"><polygon points="140,176 250,132 360,176 250,220" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/><text x="250" y="173" font-size="13" text-anchor="middle" fill="#1F2328">Programme and batch</text><text x="250" y="190" font-size="13" text-anchor="middle" fill="#1F2328">known?</text></g>
+<path d="M360 176 L470 176" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="415" y="168" font-size="11.5" text-anchor="middle" fill="#5B6470">no</text>
+<g id="clarification-needed"><rect x="470" y="148" width="240" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="486" y="172" font-size="13" font-weight="600" fill="#1F2328">clarification_needed</text>
+<text x="486" y="188" font-size="11.5" fill="#5B6470">Ask which programme and batch,</text>
+<text x="486" y="204" font-size="11.5" fill="#5B6470">only when the values differ</text>
+</g>
+<path d="M250 220 L250 244" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="262" y="238" font-size="11.5" fill="#5B6470">yes</text>
+<g id="1-applicability"><rect x="90" y="244" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="268" font-size="13" font-weight="600" fill="#1F2328">1 Applicability</text>
+<text x="106" y="284" font-size="11.5" fill="#5B6470">Scope covers programme and batch;</text>
+<text x="106" y="300" font-size="11.5" fill="#5B6470">dates cover the as-of date</text>
+</g>
+<path d="M410 280 L470 280" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="set-aside"><rect x="470" y="252" width="240" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="486" y="276" font-size="13" font-weight="600" fill="#1F2328">Set aside</text>
+<text x="486" y="292" font-size="11.5" fill="#5B6470">Out of scope or expired.</text>
+<text x="486" y="308" font-size="11.5" fill="#5B6470">Starts later: reported only</text>
+</g>
+<path d="M250 316 L250 340" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="2-informational-check"><rect x="90" y="340" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="364" font-size="13" font-weight="600" fill="#1F2328">2 Informational check</text>
+<text x="106" y="380" font-size="11.5" fill="#5B6470">Authority level 5 is informational</text>
+<text x="106" y="396" font-size="11.5" fill="#5B6470">only and is never the answer</text>
+</g>
+<path d="M410 376 L470 376" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="set-aside"><rect x="470" y="348" width="240" height="72" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="486" y="372" font-size="13" font-weight="600" fill="#1F2328">Set aside</text>
+<text x="486" y="388" font-size="11.5" fill="#5B6470">Shown as context,</text>
+<text x="486" y="404" font-size="11.5" fill="#5B6470">never quoted as the rule</text>
+</g>
+<path d="M250 412 L250 436" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="3-supersession"><rect x="90" y="436" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="460" font-size="13" font-weight="600" fill="#1F2328">3 Supersession</text>
+<text x="106" y="476" font-size="11.5" fill="#5B6470">A level 1 or 2 document that names</text>
+<text x="106" y="492" font-size="11.5" fill="#5B6470">a clause replaces that clause</text>
+</g>
+<path d="M410 472 L470 472" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="replaced-clause-loses"><rect x="470" y="444" width="240" height="56" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="486" y="468" font-size="13" font-weight="600" fill="#1F2328">Replaced clause loses</text>
+<text x="486" y="484" font-size="11.5" fill="#5B6470">Recorded as superseded</text>
+</g>
+<path d="M250 508 L250 532" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="4-authority"><rect x="90" y="532" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="556" font-size="13" font-weight="600" fill="#1F2328">4 Authority</text>
+<text x="106" y="572" font-size="11.5" fill="#5B6470">Lower level number wins:</text>
+<text x="106" y="588" font-size="11.5" fill="#5B6470">1 regulation up to 5 informal</text>
+</g>
+<path d="M410 568 L470 568" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="overridden"><rect x="470" y="540" width="240" height="56" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="486" y="564" font-size="13" font-weight="600" fill="#1F2328">Overridden</text>
+<text x="486" y="580" font-size="11.5" fill="#5B6470">Kept as a citation of the loser</text>
+</g>
+<path d="M250 604 L250 628" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="5-recency"><rect x="90" y="628" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="106" y="652" font-size="13" font-weight="600" fill="#1F2328">5 Recency</text>
+<text x="106" y="668" font-size="11.5" fill="#5B6470">Equal authority: the later</text>
+<text x="106" y="684" font-size="11.5" fill="#5B6470">effective date wins</text>
+</g>
+<path d="M410 664 L470 664" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="overridden"><rect x="470" y="636" width="240" height="56" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="486" y="660" font-size="13" font-weight="600" fill="#1F2328">Overridden</text>
+<text x="486" y="676" font-size="11.5" fill="#5B6470">Kept as a citation of the loser</text>
+</g>
+<path d="M250 700 L250 724" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="still-tied"><polygon points="140,768 250,724 360,768 250,812" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/><text x="250" y="772.5" font-size="13" text-anchor="middle" fill="#1F2328">Still tied?</text></g>
+<path d="M360 768 L470 768" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="415" y="760" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="conflict-flagged"><rect x="470" y="740" width="240" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="486" y="764" font-size="13" font-weight="600" fill="#1F2328">conflict_flagged</text>
+<text x="486" y="780" font-size="11.5" fill="#5B6470">Quote both, decide nothing</text>
+</g>
+<path d="M250 812 L250 836" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="262" y="830" font-size="11.5" fill="#5B6470">no</text>
+<g id="resolved"><rect x="90" y="836" width="320" height="56" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="106" y="860" font-size="13" font-weight="600" fill="#1F2328">Resolved</text>
+<text x="106" y="876" font-size="11.5" fill="#5B6470">One winner, losers kept as citations</text>
+</g>
+<text x="24" y="926" font-size="11.5" fill="#5B6470">Arrows to the right mark clauses that drop out. Rules starting after the question date are reported only.</text>
+<rect x="24" y="948" width="16" height="12" rx="3" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="46" y="958" font-size="11.5" fill="#5B6470">Test</text>
+<rect x="92.61" y="948" width="16" height="12" rx="3" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="114.61" y="958" font-size="11.5" fill="#5B6470">Dropped or outranked</text>
+<rect x="259.66" y="948" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="281.66" y="958" font-size="11.5" fill="#5B6470">Outcome</text>
+<rect x="346.7275" y="948" width="16" height="12" rx="3" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="368.7275" y="958" font-size="11.5" fill="#5B6470">Conflict</text>
+</svg>

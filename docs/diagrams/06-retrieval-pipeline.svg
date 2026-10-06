@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="918" viewBox="0 0 760 918" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="918" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">Retrieval finds candidates; it never decides which one is right</text>
+<g id="question"><rect x="220" y="56" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="80" font-size="13" font-weight="600" fill="#1F2328">Question</text>
+<text x="236" y="96" font-size="11.5" fill="#5B6470">As typed, after cleaning</text>
+</g>
+<path d="M380 112 L380 136" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="tokenise-and-expand"><rect x="220" y="136" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="160" font-size="13" font-weight="600" fill="#1F2328">Tokenise and expand</text>
+<text x="528" y="160" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">tokenize</text>
+<text x="236" y="176" font-size="11.5" fill="#5B6470">Stem words, add synonyms like supply</text>
+</g>
+<path d="M380 192 L380 204 L225 204 L225 216" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M380 204 L535 204 L535 216" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<path d="M535 204 L535 216" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="dense-search"><rect x="100" y="216" width="250" height="56" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="116" y="240" font-size="13" font-weight="600" fill="#1F2328">Dense search</text>
+<text x="116" y="256" font-size="11.5" fill="#5B6470">ChromaDB vectors, top 40</text>
+</g>
+<g id="keyword-search"><rect x="410" y="216" width="250" height="56" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="426" y="240" font-size="13" font-weight="600" fill="#1F2328">Keyword search</text>
+<text x="426" y="256" font-size="11.5" fill="#5B6470">BM25 over chunk text, top 40</text>
+</g>
+<path d="M225 272 L225 284 L380 284 L380 296" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<path d="M535 272 L535 284 L380 284" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<path d="M380 284 L380 296" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="reciprocal-rank-fusion"><rect x="220" y="296" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="320" font-size="13" font-weight="600" fill="#1F2328">Reciprocal rank fusion</text>
+<text x="236" y="336" font-size="11.5" fill="#5B6470">Score = weight / (60 + rank), summed</text>
+</g>
+<path d="M380 352 L380 376" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="rerank"><rect x="220" y="376" width="320" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="400" font-size="13" font-weight="600" fill="#1F2328">Rerank</text>
+<text x="528" y="400" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">rerank</text>
+<text x="236" y="416" font-size="11.5" fill="#5B6470">Final score = half fusion, half lexical</text>
+<text x="236" y="432" font-size="11.5" fill="#5B6470">rerank. Keep the top 8 chunks.</text>
+</g>
+<path d="M380 448 L380 472" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="drop-suspicious-chunks"><rect x="220" y="472" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="496" font-size="13" font-weight="600" fill="#1F2328">Drop suspicious chunks</text>
+<text x="236" y="512" font-size="11.5" fill="#5B6470">Instruction-like text is never evidence</text>
+</g>
+<path d="M380 528 L380 552" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="follow-cross-references"><rect x="220" y="552" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="576" font-size="13" font-weight="600" fill="#1F2328">Follow cross-references</text>
+<text x="236" y="592" font-size="11.5" fill="#5B6470">Add clauses cited in the same document</text>
+</g>
+<path d="M380 608 L380 632" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="evidence-gate"><polygon points="270,676 380,632 490,676 380,720" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/><text x="380" y="673" font-size="13" text-anchor="middle" fill="#1F2328">Evidence covers</text><text x="380" y="690" font-size="13" text-anchor="middle" fill="#1F2328">the question?</text></g>
+<path d="M270 676 L194 676" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="232" y="668" font-size="11.5" text-anchor="middle" fill="#5B6470">no</text>
+<g id="not-found"><rect x="24" y="648" width="170" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="40" y="672" font-size="13" font-weight="600" fill="#1F2328">not_found</text>
+<text x="40" y="688" font-size="11.5" fill="#5B6470">Say so, do not guess</text>
+</g>
+<g id="evidence-gate"><rect x="520" y="616" width="216" height="120" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="536" y="640" font-size="13" font-weight="600" fill="#1F2328">Evidence gate</text>
+<text x="536" y="656" font-size="11.5" fill="#5B6470">Share of question terms found</text>
+<text x="536" y="672" font-size="11.5" fill="#5B6470">in the evidence, weighted by</text>
+<text x="536" y="688" font-size="11.5" fill="#5B6470">how rare each term is.</text>
+<text x="536" y="704" font-size="11.5" fill="#5B6470">Below 0.55: abstain.</text>
+<text x="536" y="720" font-size="11.5" fill="#5B6470">Below 0.85: add a note.</text>
+</g>
+<path d="M520 676 L490 676" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4"/>
+<path d="M380 720 L380 752" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="392" y="742" font-size="11.5" fill="#5B6470">yes</text>
+<g id="hand-to-source-authority"><rect x="220" y="752" width="320" height="56" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="236" y="776" font-size="13" font-weight="600" fill="#1F2328">Hand to source authority</text>
+<text x="236" y="792" font-size="11.5" fill="#5B6470">Candidates go to the five tests</text>
+</g>
+<text x="24" y="846" font-size="11.5" fill="#5B6470">Settings: candidate pool 40, fusion constant 60, top 8. Authority is applied after retrieval, never during it.</text>
+<rect x="24" y="868" width="16" height="12" rx="3" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="46" y="878" font-size="11.5" fill="#5B6470">Search index</text>
+<rect x="141.82999999999998" y="868" width="16" height="12" rx="3" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="163.82999999999998" y="878" font-size="11.5" fill="#5B6470">Threshold</text>
+<rect x="241.2025" y="868" width="16" height="12" rx="3" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="263.2025" y="878" font-size="11.5" fill="#5B6470">Abstain</text>
+<rect x="328.27" y="868" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="350.27" y="878" font-size="11.5" fill="#5B6470">Next stage</text>
+</svg>

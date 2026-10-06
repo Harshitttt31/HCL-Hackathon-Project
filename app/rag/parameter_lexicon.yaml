@@ -1,0 +1,148 @@
+# Parameter lexicon: the ONLY place that teaches the system which facts become rule_registry rows.
+#
+# * `patterns`        regexes run over ingested chunk text; each needs a named group (?P<value>...)
+# * `query_patterns`  regexes that tell the planner a question is asking about this parameter
+# * thresholds are NEVER stored here: values are extracted from documents and live in rule_registry.
+#
+# To support a new kind of rule: add an entry, ingest a document, done. No Python change needed.
+# Order matters for query matching: the first parameter whose query_patterns match (and exclude_query_patterns do not) wins.
+
+parameters:
+
+  condonation_min_attendance_pct:
+    label: Lowest attendance at which a shortage can still be condoned
+    unit: pct
+    operator: ">="
+    prefix: ATT-CON
+    query_patterns:
+      - '\bcondon\w*'
+      - '\battendance shortage\b'
+      - '\bshort(?:age)? of attendance\b'
+    patterns:
+      - regex: '(?i)between\s+(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s*(?:and|to|-)\s*(?:\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)[^.]{0,160}condon'
+      - regex: '(?i)condon\w*[^.]{0,160}?(?:attendance\s+)?(?:of\s+)?(?:at least|minimum(?: of)?|not less than|between|above|from)\s+(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)(?:attendance\s+)?(?:between|from)\s+(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s*(?:and|to|-)\s*\d{1,3}(?:\.\d+)?\s*(?:%|per\s?cent)[^.]{0,120}(?:may be|can be|shall be|will be)\s+condon'
+
+  min_attendance_pct:
+    label: Minimum attendance to appear in the end-semester examination
+    unit: pct
+    operator: ">="
+    prefix: ATT-MIN
+    query_patterns:
+      - '\b(?:minimum|least|required|requirement|threshold|criteria|criterion|mandatory|compulsory|needed|cut-?off)\b[^?.]*\battendance\b'
+      - '\battendance\b[^?.]*\b(?:minimum|required|requirement|threshold|criteria|criterion|mandatory|compulsory|needed|cut-?off)\b'
+      - '\bhow much attendance\b'
+      - '\battendance (?:percentage|percent|%)? ?(?:rule|policy)\b'
+    exclude_query_patterns:
+      - '\bcondon\w*'
+    patterns:
+      - regex: '(?i)(?:minimum|least|not less than|no less than)\s+(?:of\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s+(?:of\s+)?(?:overall\s+|aggregate\s+|the\s+)?attendance'
+      - regex: '(?i)(?:minimum|required)\s+(?:overall\s+|aggregate\s+)?attendance(?:\s+requirement)?(?:\s+(?:of|is|shall be|will be|stands at|:))?\s*(?:at\s+least\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)attendance\s+(?:of\s+)?(?:at least|not less than|no less than|a minimum of|minimum of)\s+(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s+(?:attendance|of attendance)\s+(?:is|shall be|will be)\s+(?:mandatory|required|compulsory|needed|necessary)'
+      - regex: '(?i)(?:not|never)\s+(?:be\s+)?(?:permitted|allowed|eligible)[^.]{0,120}attendance\s+(?:is\s+)?(?:below|less than|lower than)\s+(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)(?:minimum\s+)?attendance\s+(?:required|requirement)\s*(?:is|shall be|will be|stands at|of|:)\s*(?:at least\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)(?:maintain|secure|have|possess|attain|achieve)\s+(?:an?\s+)?(?:minimum\s+)?(?:overall\s+)?attendance\s+(?:of\s+)?(?:at least\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+      - regex: '(?i)(?:maintain|secure|have|possess|attain|achieve|requires?|required to have)\s+(?:an?\s+)?(?:minimum\s+(?:of\s+)?)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s+(?:overall\s+)?attendance'
+
+  pass_marks_pct:
+    label: Minimum percentage of marks required to pass a course
+    unit: pct
+    operator: ">="
+    prefix: PASS-MIN
+    query_patterns:
+      - '\bpass(?:ing)?\s+(?:marks?|percentage|criteria|score|mark)\b'
+      - '\b(?:minimum|least|required)\b[^?.]*\b(?:marks?|score)\b[^?.]*\bpass\b'
+      - '\bhow many marks\b[^?.]*\bpass\b'
+    patterns:
+      - regex: '(?i)(?:minimum|least|not less than)\s+(?:of\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)\s+(?:of\s+)?(?:the\s+)?(?:total\s+)?marks[^.]{0,80}(?:pass|qualif)'
+      - regex: '(?i)pass(?:ing)?\s+marks?\s+(?:is|are|shall be|:)?\s*(?:at least\s+)?(?P<value>\d{1,3}(?:\.\d+)?)\s*(?:%|per\s?cent)'
+
+  sup_max_attempts:
+    label: Maximum number of attempts allowed for a course (regular plus supplementary)
+    unit: count
+    operator: "<="
+    prefix: SUP-ATT
+    query_patterns:
+      - '\bhow many (?:attempts|chances|times)\b'
+      - '\bmaximum (?:number of )?(?:attempts|chances)\b'
+    patterns:
+      - regex: '(?i)(?:maximum|at most|up to|not more than|no more than)\s+(?:of\s+)?(?P<value>\d{1,2}|one|two|three|four|five|six)\s+(?:attempts|chances)'
+
+  sup_application_deadline:
+    label: Last date to apply for the supplementary examination
+    unit: date
+    operator: "<="
+    prefix: SUP-DL
+    query_patterns:
+      - '\b(?:supplementary|supply|re-?exam\w*)\b[^?.]*\b(?:deadline|last date|due date|by when|closing date|apply by)\b'
+      - '\b(?:deadline|last date|due date|closing date)\b[^?.]*\b(?:supplementary|supply|re-?exam\w*)\b'
+    patterns:
+      - regex: '(?i)(?:supplementary|re-?examination)[^.]{0,200}?(?:last date|deadline|closing date|on or before|no later than|by)\s*(?:for[^.]{0,60}?)?(?:is|:|shall be)?\s*(?P<value>\d{4}-\d{2}-\d{2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9},?\s+\d{4}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})'
+      - regex: '(?i)(?:last date|deadline|closing date)[^.]{0,120}?(?:supplementary|re-?examination)[^.]{0,80}?(?:is|:|shall be)\s*(?P<value>\d{4}-\d{2}-\d{2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9},?\s+\d{4}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})'
+
+  sup_exam_fee:
+    label: Fee per course for the supplementary examination (INR)
+    unit: currency
+    operator: "=="
+    prefix: SUP-FEE
+    query_patterns:
+      - '\b(?:supplementary|supply|re-?exam\w*)\b[^?.]*\b(?:fee|fees|cost|charges?|payment)\b'
+      - '\b(?:fee|fees|cost|charges?)\b[^?.]*\b(?:supplementary|supply|re-?exam\w*)\b'
+    patterns:
+      - regex: '(?i)(?:supplementary|re-?examination)[^.]{0,120}?fee[^.]{0,60}?(?:Rs\.?|INR|₹)\s*(?P<value>[\d,]+(?:\.\d+)?)'
+      - regex: '(?i)(?:Rs\.?|INR|₹)\s*(?P<value>[\d,]+(?:\.\d+)?)\s*(?:per\s+(?:course|subject|paper))[^.]{0,80}(?:supplementary|re-?examination)'
+
+  placement_min_cgpa:
+    label: Minimum CGPA to sit for campus placements
+    unit: cgpa
+    operator: ">="
+    prefix: PLC-CGPA
+    query_patterns:
+      - '\bplacement\w*\b[^?.]*\b(?:cgpa|gpa|grade point)\b'
+      - '\b(?:cgpa|gpa|grade point)\b[^?.]*\bplacement\w*\b'
+    patterns:
+      - regex: '(?i)placements?[^.]{0,160}?(?:minimum|least|not less than|no less than)\s+(?:of\s+)?(?:a\s+)?(?:cumulative\s+)?(?:CGPA|grade point average|GPA)\s*(?:of\s+)?(?P<value>\d{1,2}(?:\.\d+)?)'
+      - regex: '(?i)(?:minimum|least|not less than|no less than)\s+(?:of\s+)?(?:a\s+)?(?:cumulative\s+)?(?:CGPA|grade point average|GPA)\s*(?:of\s+)?(?P<value>\d{1,2}(?:\.\d+)?)[^.]{0,120}placements?'
+      - regex: '(?i)placements?[^.]{0,160}?(?:CGPA|GPA)\s+of\s+(?:at least\s+)?(?P<value>\d{1,2}(?:\.\d+)?)\s*(?:or above|or more|and above|or higher)'
+
+  placement_max_active_backlogs:
+    label: Maximum active backlogs allowed to sit for campus placements
+    unit: count
+    operator: "<="
+    prefix: PLC-BKL
+    query_patterns:
+      - '\bplacement\w*\b[^?.]*\bbacklogs?\b'
+      - '\bbacklogs?\b[^?.]*\bplacement\w*\b'
+    patterns:
+      - regex: '(?i)placements?[^.]{0,160}?(?:no more than|not more than|at most|maximum of|up to)\s+(?P<value>\d{1,2}|one|two|three)\s+(?:active\s+)?backlogs?'
+      - regex: '(?i)(?:no more than|not more than|at most|maximum of|up to)\s+(?P<value>\d{1,2}|one|two|three)\s+(?:active\s+)?backlogs?[^.]{0,120}placements?'
+      - regex: '(?i)placements?[^.]{0,160}?\bno\s+(?P<value>active)\s+backlogs?'
+      - regex: '(?i)\bno\s+(?P<value>active)\s+backlogs?[^.]{0,120}placements?'
+
+  scholarship_min_cgpa:
+    label: Minimum CGPA to be considered for the merit scholarship
+    unit: cgpa
+    operator: ">="
+    prefix: SCH-CGPA
+    query_patterns:
+      - '\bscholarship\w*\b[^?.]*\b(?:cgpa|gpa|grade point|marks|eligib\w+)\b'
+      - '\b(?:cgpa|gpa|grade point)\b[^?.]*\bscholarship\w*\b'
+    patterns:
+      - regex: '(?i)scholarship[^.]{0,160}?(?:minimum|least|not less than)\s+(?:of\s+)?(?:a\s+)?(?:cumulative\s+)?(?:CGPA|GPA)\s*(?:of\s+)?(?P<value>\d{1,2}(?:\.\d+)?)'
+      - regex: '(?i)(?:minimum|least|not less than)\s+(?:of\s+)?(?:a\s+)?(?:cumulative\s+)?(?:CGPA|GPA)\s*(?:of\s+)?(?P<value>\d{1,2}(?:\.\d+)?)[^.]{0,120}scholarship'
+
+  scholarship_application_deadline:
+    label: Last date to apply for the scholarship
+    unit: date
+    operator: "<="
+    prefix: SCH-DL
+    query_patterns:
+      - '\bscholarship\w*\b[^?.]*\b(?:deadline|last date|due date|closing date|apply by|by when|when)\b'
+      - '\b(?:deadline|last date|due date|closing date)\b[^?.]*\bscholarship\w*\b'
+    patterns:
+      - regex: '(?i)scholarship[^.]{0,200}?(?:last date|deadline|closing date|on or before|no later than)\s*(?:for[^.]{0,60}?)?(?:is|:|shall be)?\s*(?P<value>\d{4}-\d{2}-\d{2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9},?\s+\d{4}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})'
+      - regex: '(?i)(?:last date|deadline|closing date)[^.]{0,120}?scholarship[^.]{0,80}?(?:is|:|shall be)\s*(?P<value>\d{4}-\d{2}-\d{2}|\d{1,2}(?:st|nd|rd|th)?\s+[A-Za-z]{3,9},?\s+\d{4}|[A-Za-z]{3,9}\s+\d{1,2}(?:st|nd|rd|th)?,?\s+\d{4})'
+
+# Grade bands are loaded from a table (see claims.py: extract_grade_bands). They become rule_registry rows with
+# parameter "grade_points" and attributes {grade, min, max, points}.

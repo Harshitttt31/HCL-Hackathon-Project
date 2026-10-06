@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="708" viewBox="0 0 760 708" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="708" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">One question end to end: Am I eligible for the end-semester exam in CS301?</text>
+<line x1="70" y1="100" x2="70" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="172" y1="100" x2="172" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="274" y1="100" x2="274" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="376" y1="100" x2="376" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="478" y1="100" x2="478" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="580" y1="100" x2="580" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<line x1="682" y1="100" x2="682" y2="600" stroke="#C9CED4" stroke-width="1" stroke-dasharray="4 4"/>
+<g id="life-0"><rect x="22" y="56" width="96" height="44" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="70" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">Student</text>
+</g>
+<g id="life-1"><rect x="124" y="56" width="96" height="44" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="172" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">FastAPI</text>
+</g>
+<g id="life-2"><rect x="226" y="56" width="96" height="44" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="274" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">LangGraph</text>
+</g>
+<g id="life-3"><rect x="328" y="56" width="96" height="44" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="376" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">Tools</text>
+</g>
+<g id="life-4"><rect x="430" y="56" width="96" height="44" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="478" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">SQLite</text>
+</g>
+<g id="life-5"><rect x="532" y="56" width="96" height="44" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="580" y="82" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">ChromaDB</text>
+</g>
+<g id="life-6"><rect x="634" y="56" width="96" height="44" rx="8" fill="#FCEFD9" stroke="#C26A00" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="682" y="75" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">Language</text>
+<text x="682" y="90" font-size="12" font-weight="600" text-anchor="middle" fill="#1F2328">model</text>
+</g>
+<path d="M70 138 L172 138" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="78" y="132" font-size="11.5" fill="#5B6470">POST /ask: question and X-Student-Id header</text>
+<path d="M172 172 L274 172" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="180" y="166" font-size="11.5" fill="#5B6470">ask(question, student_id, as_of date)</text>
+<path d="M274 260 L376 260" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="282" y="254" font-size="11.5" fill="#5B6470">check_exam_eligibility(CS301)</text>
+<path d="M376 296 L478 296" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="384" y="290" font-size="11.5" fill="#5B6470">read attendance and results</text>
+<path d="M478 328 L376 328" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<text x="384" y="322" font-size="11.5" fill="#5B6470">rows</text>
+<path d="M376 364 L478 364" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="384" y="358" font-size="11.5" fill="#5B6470">get_rule: attendance minimum on the as-of date</text>
+<path d="M376 400 L274 400" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<text x="282" y="394" font-size="11.5" fill="#5B6470">verdict, percentage, rule id, citations</text>
+<path d="M274 436 L682 436" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="282" y="430" font-size="11.5" fill="#5B6470">reword the draft (optional)</text>
+<path d="M682 468 L274 468" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<text x="282" y="462" font-size="11.5" fill="#5B6470">reworded text</text>
+<path d="M274 540 L478 540" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="282" y="534" font-size="11.5" fill="#5B6470">write audit record (hashed id)</text>
+<path d="M274 576 L70 576" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<text x="78" y="570" font-size="11.5" fill="#5B6470">answer, citations, tools_invoked, applied_rules, trace_id</text>
+<g id="self-checks"><rect x="266" y="192" width="196" height="34" rx="6" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/><text x="278" y="206" font-size="11.5" fill="#1F2328">clean, classify, privacy check,</text><text x="278" y="220" font-size="11.5" fill="#1F2328">plan (all deterministic)</text></g>
+<g id="self-validate"><rect x="266" y="484" width="196" height="22" rx="6" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/><text x="278" y="499" font-size="11.5" fill="#1F2328">validate numbers, ids, verdict</text></g>
+<text x="24" y="636" font-size="11.5" fill="#5B6470">Document search joins only when a question needs policy text; this one is answered from tools alone.</text>
+<rect x="24" y="658" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="46" y="668" font-size="11.5" fill="#5B6470">Deterministic code</text>
+<rect x="178.745" y="658" width="16" height="12" rx="3" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="200.745" y="668" font-size="11.5" fill="#5B6470">Data</text>
+<rect x="247.35500000000002" y="658" width="16" height="12" rx="3" fill="#FCEFD9" stroke="#C26A00" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="269.355" y="668" font-size="11.5" fill="#5B6470">Language model</text>
+<rect x="377.49" y="658" width="16" height="12" rx="3" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="399.49" y="668" font-size="11.5" fill="#5B6470">Interface</text>
+</svg>

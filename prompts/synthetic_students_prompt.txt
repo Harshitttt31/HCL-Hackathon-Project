@@ -1,0 +1,28 @@
+Role: you generate synthetic student data for testing a university academic assistant. Everything is fictional.
+
+Output: three CSV files with exactly these headers, and nothing else (no commentary, no code fences).
+
+students.csv
+student_id,full_name,programme,batch_year,current_semester,cgpa,active_backlogs
+
+attendance.csv
+student_id,course_code,classes_held,classes_attended
+
+results.csv
+(use the header of data/results.csv in this repository)
+
+Rules
+1. Identifiers: S1001 to S1060. Names are invented and common, never those of real public figures.
+2. Programmes are only: B.Tech CSE, B.Tech ECE, M.Tech CSE. Batch years 2022 to 2025. Semester must be consistent with batch year (a 2024 batch student is in semester 5 in autumn 2026).
+3. Every course_code in attendance.csv and results.csv must exist in courses.csv and belong to the student's programme.
+4. 0 <= classes_attended <= classes_held. classes_held is between 36 and 60.
+5. Include boundary cases, because the assistant must decide them exactly:
+   - one student with attendance of exactly 80.00% in a course (40 of 50) and one just below it (47 of 59 = 79.66%)
+   - one student at exactly 75.00%, one at exactly 65.00%
+   - one student whose CGPA is exactly 7.00 and one at 6.99
+   - students with 0, 1 and 2 active backlogs
+6. cgpa must be recomputable from results.csv with the credit weighted rule in the repository README, rounded half up to 2 decimals. If you cannot guarantee this, leave cgpa blank and say so in a final line starting with NOTE:.
+7. Marks: internal and external parts must sum to the total; PASS only when the total meets the pass mark rule.
+8. No personal data of real people, no real institution names, no emails or phone numbers.
+
+After generating, run `python scripts/validate_synthetic.py` and fix every reported inconsistency before using the files.

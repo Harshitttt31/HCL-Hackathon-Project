@@ -1,0 +1,11 @@
+doc_id,title,issuer,authority_level,doc_type,version,effective_from,effective_to,supersedes,scope_programmes,scope_batches,provenance,retrieved_on,synthetic
+ACAD-REG-2024,Academic Regulations 2024,"Academic Senate, Meridian Institute of Technology",1,regulation,3.1,2024-07-01,,,ALL,2022+,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+ACAD-2026-08,Circular on Revised Minimum Attendance,Office of the Dean (Academics),2,circular,1.0,2026-08-01,,ACAD-REG-2024#7.2,B.Tech CSE;B.Tech ECE,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+PLACEMENT-2027,Circular on Placement Eligibility 2027,Office of the Dean (Academics),2,circular,1.0,2027-01-01,,ACAD-REG-2024#11.1,B.Tech CSE,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+SUP-NOTICE-2026,Supplementary Examination Notice 2026,Controller of Examinations,2,notice,1.0,2026-09-01,2027-03-31,,ALL,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+DEPT-FAQ-CSE,Department of CSE Student FAQ,Department of Computer Science and Engineering,4,faq,2.0,2026-09-15,,,B.Tech CSE,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+HOSTEL-HANDBOOK,Hostel Handbook 2025-26,Office of the Chief Warden,4,handbook,1.2,2025-07-01,,,ALL,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+LIBRARY-RULES,Central Library Rules,Central Library,4,handbook,1.0,2025-07-01,,,ALL,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+SCH-NOTICE-A,Merit Scholarship Application Notice (Scholarship Cell),Scholarship Cell,3,notice,1.0,2026-09-01,,,ALL,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+SCH-NOTICE-B,Merit Scholarship Application Notice (Dean of Students),Dean of Students,3,notice,1.0,2026-09-01,,,ALL,ALL,"Synthetic document written for this project (template text, no real institution)",2026-10-05,Y
+STUDENT-FORUM-NOTES,Student Forum Notes (unofficial),Student forum volunteers,5,unofficial,0.1,2026-09-20,,,ALL,ALL,Synthetic document: stands in for untrusted community content,2026-10-05,Y

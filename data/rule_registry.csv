@@ -1,0 +1,17 @@
+rule_id,description,parameter,operator,value,scope_programmes,scope_batches,effective_from,effective_to,source_doc_id,source_section,unit
+ATT-MIN-01,Minimum 75% attendance per course to appear in the end-semester examination,min_attendance_pct,>=,75,ALL,ALL,2024-07-01,,ACAD-REG-2024,7.2,pct
+ATT-MIN-02,Minimum 80% attendance for B.Tech programmes (supersedes clause 7.2 of ACAD-REG-2024),min_attendance_pct,>=,80,B.Tech CSE;B.Tech ECE,ALL,2026-08-01,,ACAD-2026-08,2.1,pct
+ATT-MIN-FAQ,"FAQ statement of 65% attendance (level 4, outranked)",min_attendance_pct,>=,65,B.Tech CSE,ALL,2026-09-15,,DEPT-FAQ-CSE,3.1,pct
+ATT-CON-01,Attendance between 65% and 75% may be condoned,condonation_min_attendance_pct,>=,65,ALL,ALL,2024-07-01,,ACAD-REG-2024,7.4,pct
+PASS-MIN-01,Minimum 40% of total marks to pass a course,pass_marks_pct,>=,40,ALL,ALL,2024-07-01,,ACAD-REG-2024,5.1,pct
+SUP-RES-01,Results that allow a supplementary attempt,sup_eligible_results,in,FAIL;ABSENT,ALL,ALL,2024-07-01,,ACAD-REG-2024,6.1,
+SUP-ATT-01,Maximum 3 attempts per course,sup_max_attempts,<=,3,ALL,ALL,2024-07-01,,ACAD-REG-2024,6.2,count
+SUP-DL-01,Last date to apply for the supplementary examination,sup_application_deadline,<=,2026-11-15,ALL,ALL,2026-09-01,2027-03-31,SUP-NOTICE-2026,2.1,date
+SUP-FEE-01,Supplementary examination fee per course (INR),sup_exam_fee,==,2500,ALL,ALL,2026-09-01,2027-03-31,SUP-NOTICE-2026,2.2,currency
+PLC-CGPA-01,Minimum CGPA 6.5 to sit for campus placements,placement_min_cgpa,>=,6.5,ALL,ALL,2024-07-01,,ACAD-REG-2024,11.1,cgpa
+PLC-CGPA-02,Minimum CGPA 7.0 for B.Tech CSE from 2027-01-01,placement_min_cgpa,>=,7.0,B.Tech CSE,ALL,2027-01-01,,PLACEMENT-2027,1.1,cgpa
+PLC-BKL-01,At most 1 active backlog at placement registration,placement_max_active_backlogs,<=,1,ALL,ALL,2024-07-01,,ACAD-REG-2024,11.2,count
+SCH-CGPA-01,Minimum CGPA 8.0 for the merit scholarship,scholarship_min_cgpa,>=,8.0,ALL,ALL,2024-07-01,,ACAD-REG-2024,12.1,cgpa
+SCH-DL-01,Scholarship deadline per the Scholarship Cell,scholarship_application_deadline,<=,2026-11-10,ALL,ALL,2026-09-01,,SCH-NOTICE-A,1.1,date
+SCH-DL-02,Scholarship deadline per the Dean of Students,scholarship_application_deadline,<=,2026-11-20,ALL,ALL,2026-09-01,,SCH-NOTICE-B,1.1,date
+ATT-MIN-FORUM,"Unofficial forum claim of 60% (level 5, informational only)",min_attendance_pct,>=,60,ALL,ALL,2026-09-20,,STUDENT-FORUM-NOTES,1.1,pct

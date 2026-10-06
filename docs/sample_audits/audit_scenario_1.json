@@ -1,0 +1,332 @@
+{
+  "trace_id": "3a6c7c1d",
+  "ts": "2026-10-06T07:31:38.488Z",
+  "as_of_date": "2026-10-06",
+  "student_id_hash": null,
+  "question_hash": "24a10e3bf6a5d48b",
+  "question_redacted": "What is the minimum attendance for B.Tech CSE students?",
+  "question_category": "policy_parameter",
+  "intents": [
+    "policy_parameter"
+  ],
+  "classification_source": "rules",
+  "privacy": {
+    "allowed": true,
+    "code": "",
+    "detail": ""
+  },
+  "answer_type": "retrieved_fact",
+  "answer": "The minimum attendance to appear in the end-semester examination is at least 80% (ATT-MIN-02, clause 2.1 of Circular on Revised Minimum Attendance, in force on 2026-10-06). Note: ACAD-REG-2024 clause 7.2 (>=75%) was superseded by ACAD-2026-08 effective 2026-08-01, so >=80% applies. Note: DEPT-FAQ-CSE clause 3.1 says >=65% but ACAD-2026-08 clause 2.1 has higher authority (level 2 against level 4), so >=80% applies.",
+  "explanation": "step2 ACAD-REG-2024#7.2 superseded by ACAD-2026-08; step2 ACAD-REG-2024#7.2 superseded by ACAD-2026-08; topic 'min_attendance_pct': winner ACAD-2026-08#2.1 (level 2, effective 2026-08-01); 2 overridden ACAD-REG-2024 7.2 (level 1, effective 2024-07-01) says >=75% was explicitly superseded by ACAD-2026-08 (Official circulars and notifications from an authorised office, effective 2026-08-01); the earlier text is no longer applicable for 'min attendance pct'. ACAD-2026-08 2.1 (level 2, effective 2026-08-01) says >=80% prevails over DEPT-FAQ-CSE 3.1 (level 4, effective 2026-09-15) says >=65% because it has higher authority (level 2 vs level 4); date does not matter across authority levels. Rules and documents are applied as in force on 2026-10-06.",
+  "node_trace": [
+    {
+      "node": "input_guard",
+      "ms": 0.2,
+      "summary": "55 characters"
+    },
+    {
+      "node": "classify",
+      "ms": 4.7,
+      "summary": "intents=['policy_parameter'] source=rules courses=[]"
+    },
+    {
+      "node": "privacy_check",
+      "ms": 6.2,
+      "summary": "allowed"
+    },
+    {
+      "node": "plan",
+      "ms": 0.0,
+      "summary": "policy_parameter->get_rule"
+    },
+    {
+      "node": "execute_tools",
+      "ms": 4.5,
+      "summary": "1 tool call(s); statuses=['ok']; documents_needed=False"
+    },
+    {
+      "node": "compose",
+      "ms": 0.0,
+      "summary": "type=retrieved_fact citations=1 rules=1 conflicts=2"
+    },
+    {
+      "node": "generate",
+      "ms": 0.3,
+      "summary": "llm_text_used=False validation_ok=True"
+    },
+    {
+      "node": "validate",
+      "ms": 0.4,
+      "summary": "passed"
+    }
+  ],
+  "tools_invoked": [
+    {
+      "tool": "get_rule",
+      "input": {
+        "parameter": "min_attendance_pct",
+        "programme": "B.Tech CSE",
+        "batch_year": null
+      },
+      "output": {
+        "parameter": "min_attendance_pct",
+        "status": "resolved",
+        "rule": {
+          "rule_id": "ATT-MIN-02",
+          "parameter": "min_attendance_pct",
+          "operator": ">=",
+          "value": "80",
+          "unit": "pct",
+          "display": ">=80%",
+          "description": "Minimum 80% attendance for B.Tech programmes (supersedes clause 7.2 of ACAD-REG-2024)",
+          "source_doc_id": "ACAD-2026-08",
+          "source_section": "2.1",
+          "source_page": null,
+          "effective_from": "2026-08-01",
+          "effective_to": null,
+          "scope_programmes": "B.Tech CSE;B.Tech ECE",
+          "scope_batches": "ALL",
+          "quote": null,
+          "attributes": null
+        },
+        "tied_rules": [],
+        "conflicts": [
+          {
+            "topic": "min_attendance_pct",
+            "kind": "supersession",
+            "resolved": true,
+            "resolution_rule": "Annex A step 2: a level 1 or 2 document that explicitly supersedes another replaces it",
+            "winner": {
+              "doc_id": "ACAD-2026-08",
+              "title": "Circular on Revised Minimum Attendance",
+              "section": "2.1",
+              "value": ">=80%",
+              "authority_level": 2,
+              "issuer": "Office of the Dean (Academics)",
+              "effective_from": "2026-08-01",
+              "effective_to": null
+            },
+            "overridden": [
+              {
+                "doc_id": "ACAD-REG-2024",
+                "title": "Academic Regulations 2024",
+                "section": "7.2",
+                "value": ">=75%",
+                "authority_level": 1,
+                "issuer": "Academic Senate, Meridian Institute of Technology",
+                "effective_from": "2024-07-01",
+                "effective_to": null
+              }
+            ],
+            "explanation": "ACAD-REG-2024 7.2 (level 1, effective 2024-07-01) says >=75% was explicitly superseded by ACAD-2026-08 (Official circulars and notifications from an authorised office, effective 2026-08-01); the earlier text is no longer applicable for 'min attendance pct'."
+          },
+          {
+            "topic": "min_attendance_pct",
+            "kind": "supersession",
+            "resolved": true,
+            "resolution_rule": "Annex A step 2: a level 1 or 2 document that explicitly supersedes another replaces it",
+            "winner": {
+              "doc_id": "ACAD-2026-08",
+              "title": "Circular on Revised Minimum Attendance",
+              "section": "2.1",
+              "value": ">=80%",
+              "authority_level": 2,
+              "issuer": "Office of the Dean (Academics)",
+              "effective_from": "2026-08-01",
+              "effective_to": null
+            },
+            "overridden": [
+              {
+                "doc_id": "ACAD-REG-2024",
+                "title": "Academic Regulations 2024",
+                "section": "7.2",
+                "value": ">=75%",
+                "authority_level": 1,
+                "issuer": "Academic Senate, Meridian Institute of Technology",
+                "effective_from": "2024-07-01",
+                "effective_to": null
+              }
+            ],
+            "explanation": "ACAD-REG-2024 7.2 (level 1, effective 2024-07-01) says >=75% was explicitly superseded by ACAD-2026-08 (Official circulars and notifications from an authorised office, effective 2026-08-01); the earlier text is no longer applicable for 'min attendance pct'."
+          },
+          {
+            "topic": "min_attendance_pct",
+            "kind": "authority",
+            "resolved": true,
+            "resolution_rule": "Annex A step 3: a higher-authority document prevails over a lower-authority one regardless of date",
+            "winner": {
+              "doc_id": "ACAD-2026-08",
+              "title": "Circular on Revised Minimum Attendance",
+              "section": "2.1",
+              "value": ">=80%",
+              "authority_level": 2,
+              "issuer": "Office of the Dean (Academics)",
+              "effective_from": "2026-08-01",
+              "effective_to": null
+            },
+            "overridden": [
+              {
+                "doc_id": "DEPT-FAQ-CSE",
+                "title": "Department of CSE Student FAQ",
+                "section": "3.1",
+                "value": ">=65%",
+                "authority_level": 4,
+                "issuer": "Department of Computer Science and Engineering",
+                "effective_from": "2026-09-15",
+                "effective_to": null
+              }
+            ],
+            "explanation": "ACAD-2026-08 2.1 (level 2, effective 2026-08-01) says >=80% prevails over DEPT-FAQ-CSE 3.1 (level 4, effective 2026-09-15) says >=65% because it has higher authority (level 2 vs level 4); date does not matter across authority levels."
+          }
+        ],
+        "upcoming": [],
+        "clarification": null,
+        "excluded": [
+          {
+            "rule_id": "ATT-MIN-FORUM",
+            "reason": "untrusted_informational",
+            "detail": "authority level 5 content is informational only and can never override another document"
+          },
+          {
+            "rule_id": "ATT-MIN-STUDENT-FORUM-NOTES-1-1",
+            "reason": "untrusted_informational",
+            "detail": "authority level 5 content is informational only and can never override another document"
+          },
+          {
+            "rule_id": "ATT-MIN-01",
+            "reason": "superseded",
+            "detail": "explicitly superseded by ACAD-2026-08 (level 2, effective 2026-08-01)"
+          },
+          {
+            "rule_id": "ATT-MIN-ACAD-REG-2024-7-2",
+            "reason": "superseded",
+            "detail": "explicitly superseded by ACAD-2026-08 (level 2, effective 2026-08-01)"
+          },
+          {
+            "rule_id": "ATT-MIN-DEPT-FAQ-CSE-3-1",
+            "reason": "lower_authority",
+            "detail": "outranked by ACAD-2026-08 (level 2, effective 2026-08-01)"
+          },
+          {
+            "rule_id": "ATT-MIN-FAQ",
+            "reason": "lower_authority",
+            "detail": "outranked by ACAD-2026-08 (level 2, effective 2026-08-01)"
+          }
+        ],
+        "trace": [
+          "step1 applicability as_of=2026-10-06 programme=B.Tech CSE batch=None: 8 candidates -> 6 applicable, 0 upcoming, 2 informational",
+          "step2 ACAD-REG-2024#7.2 superseded by ACAD-2026-08",
+          "step2 ACAD-REG-2024#7.2 superseded by ACAD-2026-08",
+          "topic 'min_attendance_pct': winner ACAD-2026-08#2.1 (level 2, effective 2026-08-01); 2 overridden"
+        ],
+        "as_of": "2026-10-06"
+      },
+      "status": "ok",
+      "error": null,
+      "ms": 3
+    }
+  ],
+  "applied_rules": [
+    {
+      "rule_id": "ATT-MIN-02",
+      "value": ">=80%",
+      "source_doc_id": "ACAD-2026-08",
+      "section": "2.1"
+    }
+  ],
+  "citations": [
+    {
+      "doc_id": "ACAD-2026-08",
+      "title": "Circular on Revised Minimum Attendance",
+      "section": "2.1",
+      "page": 1,
+      "version": "1.0",
+      "effective_from": "2026-08-01",
+      "effective_to": null,
+      "authority_level": 2,
+      "excerpt": "With effect from 1 August 2026 a student of a B.Tech programme shall have a minimum of 80% attendance in each course to appear in the end-semester examination.",
+      "role": "supports"
+    }
+  ],
+  "conflicts_detected": [
+    {
+      "topic": "min_attendance_pct",
+      "kind": "supersession",
+      "resolved": true,
+      "resolution_rule": "Annex A step 2: a level 1 or 2 document that explicitly supersedes another replaces it",
+      "winner": {
+        "doc_id": "ACAD-2026-08",
+        "title": "Circular on Revised Minimum Attendance",
+        "section": "2.1",
+        "value": ">=80%",
+        "authority_level": 2,
+        "issuer": "Office of the Dean (Academics)",
+        "effective_from": "2026-08-01",
+        "effective_to": null
+      },
+      "overridden": [
+        {
+          "doc_id": "ACAD-REG-2024",
+          "title": "Academic Regulations 2024",
+          "section": "7.2",
+          "value": ">=75%",
+          "authority_level": 1,
+          "issuer": "Academic Senate, Meridian Institute of Technology",
+          "effective_from": "2024-07-01",
+          "effective_to": null
+        }
+      ],
+      "explanation": "ACAD-REG-2024 7.2 (level 1, effective 2024-07-01) says >=75% was explicitly superseded by ACAD-2026-08 (Official circulars and notifications from an authorised office, effective 2026-08-01); the earlier text is no longer applicable for 'min attendance pct'."
+    },
+    {
+      "topic": "min_attendance_pct",
+      "kind": "authority",
+      "resolved": true,
+      "resolution_rule": "Annex A step 3: a higher-authority document prevails over a lower-authority one regardless of date",
+      "winner": {
+        "doc_id": "ACAD-2026-08",
+        "title": "Circular on Revised Minimum Attendance",
+        "section": "2.1",
+        "value": ">=80%",
+        "authority_level": 2,
+        "issuer": "Office of the Dean (Academics)",
+        "effective_from": "2026-08-01",
+        "effective_to": null
+      },
+      "overridden": [
+        {
+          "doc_id": "DEPT-FAQ-CSE",
+          "title": "Department of CSE Student FAQ",
+          "section": "3.1",
+          "value": ">=65%",
+          "authority_level": 4,
+          "issuer": "Department of Computer Science and Engineering",
+          "effective_from": "2026-09-15",
+          "effective_to": null
+        }
+      ],
+      "explanation": "ACAD-2026-08 2.1 (level 2, effective 2026-08-01) says >=80% prevails over DEPT-FAQ-CSE 3.1 (level 4, effective 2026-09-15) says >=65% because it has higher authority (level 2 vs level 4); date does not matter across authority levels."
+    }
+  ],
+  "excluded_sources": [],
+  "retrieval": {
+    "coverage": null,
+    "missing_terms": []
+  },
+  "evidence_chunk_ids": [],
+  "validation": {
+    "ok": true,
+    "issues": [],
+    "unsupported_numbers": [],
+    "unsupported_identifiers": [],
+    "final_check": "passed"
+  },
+  "llm": {
+    "backend": "mock",
+    "model": "mock",
+    "used_for_wording": false
+  },
+  "warnings": [],
+  "prompt_version": "v1.0",
+  "latency_ms": 25
+}

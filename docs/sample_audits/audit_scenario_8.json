@@ -1,0 +1,181 @@
+{
+  "trace_id": "b4e3d345",
+  "ts": "2026-10-06T07:31:38.622Z",
+  "as_of_date": "2026-10-06",
+  "student_id_hash": "70027dde8b8e98b4",
+  "question_hash": "cc0fce339c0cebcc",
+  "question_redacted": "Am I eligible to appear in the exam?",
+  "question_category": "exam_eligibility",
+  "intents": [
+    "exam_eligibility"
+  ],
+  "classification_source": "rules",
+  "privacy": {
+    "allowed": true,
+    "code": "",
+    "detail": ""
+  },
+  "answer_type": "clarification_needed",
+  "answer": "Which course do you mean? Your courses are: CS301, CS302, CS303, CS304.",
+  "explanation": "No calculation was needed.",
+  "node_trace": [
+    {
+      "node": "input_guard",
+      "ms": 0.0,
+      "summary": "36 characters"
+    },
+    {
+      "node": "classify",
+      "ms": 1.9,
+      "summary": "intents=['exam_eligibility'] source=rules courses=[]"
+    },
+    {
+      "node": "privacy_check",
+      "ms": 3.1,
+      "summary": "allowed"
+    },
+    {
+      "node": "plan",
+      "ms": 0.0,
+      "summary": "exam_eligibility->check_exam_eligibility"
+    },
+    {
+      "node": "execute_tools",
+      "ms": 12.8,
+      "summary": "1 tool call(s); statuses=['ok']; documents_needed=False"
+    },
+    {
+      "node": "compose",
+      "ms": 0.0,
+      "summary": "type=clarification_needed citations=0 rules=0 conflicts=0"
+    },
+    {
+      "node": "generate",
+      "ms": 0.0,
+      "summary": "llm_text_used=False validation_ok=True"
+    },
+    {
+      "node": "validate",
+      "ms": 0.1,
+      "summary": "passed"
+    }
+  ],
+  "tools_invoked": [
+    {
+      "tool": "get_attendance",
+      "input": {
+        "course_code": null
+      },
+      "output": {
+        "course_code": null,
+        "course_name": null,
+        "classes_held": null,
+        "classes_attended": null,
+        "attendance_pct": null,
+        "calculation": null,
+        "courses": [
+          {
+            "course_code": "CS301",
+            "course_name": "Operating Systems",
+            "classes_held": 40,
+            "classes_attended": 31,
+            "attendance_pct": 77.5,
+            "calculation": {
+              "value": 77.5,
+              "formula": "classes_attended / classes_held * 100",
+              "inputs": {
+                "classes_attended": 31,
+                "classes_held": 40
+              },
+              "tool": "attendance_calculator",
+              "exact": "155/2",
+              "note": null
+            }
+          },
+          {
+            "course_code": "CS302",
+            "course_name": "Computer Networks",
+            "classes_held": 50,
+            "classes_attended": 40,
+            "attendance_pct": 80.0,
+            "calculation": {
+              "value": 80.0,
+              "formula": "classes_attended / classes_held * 100",
+              "inputs": {
+                "classes_attended": 40,
+                "classes_held": 50
+              },
+              "tool": "attendance_calculator",
+              "exact": "80",
+              "note": null
+            }
+          },
+          {
+            "course_code": "CS303",
+            "course_name": "Theory of Computation",
+            "classes_held": 40,
+            "classes_attended": 33,
+            "attendance_pct": 82.5,
+            "calculation": {
+              "value": 82.5,
+              "formula": "classes_attended / classes_held * 100",
+              "inputs": {
+                "classes_attended": 33,
+                "classes_held": 40
+              },
+              "tool": "attendance_calculator",
+              "exact": "165/2",
+              "note": null
+            }
+          },
+          {
+            "course_code": "CS304",
+            "course_name": "Software Engineering",
+            "classes_held": 45,
+            "classes_attended": 40,
+            "attendance_pct": 88.89,
+            "calculation": {
+              "value": 88.89,
+              "formula": "classes_attended / classes_held * 100",
+              "inputs": {
+                "classes_attended": 40,
+                "classes_held": 45
+              },
+              "tool": "attendance_calculator",
+              "exact": "800/9",
+              "note": null
+            }
+          }
+        ],
+        "overall_pct": 82.29
+      },
+      "status": "ok",
+      "error": null,
+      "ms": 12
+    }
+  ],
+  "applied_rules": [],
+  "citations": [],
+  "conflicts_detected": [],
+  "excluded_sources": [],
+  "retrieval": {
+    "coverage": null,
+    "missing_terms": []
+  },
+  "evidence_chunk_ids": [],
+  "validation": {
+    "ok": true,
+    "issues": [],
+    "unsupported_numbers": [],
+    "unsupported_identifiers": [],
+    "final_check": "passed"
+  },
+  "llm": {
+    "backend": "mock",
+    "model": "mock",
+    "used_for_wording": false
+  },
+  "warnings": [],
+  "prompt_version": "v1.0",
+  "latency_ms": 22
+}

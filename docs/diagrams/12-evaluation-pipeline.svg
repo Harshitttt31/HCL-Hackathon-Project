@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="790" viewBox="0 0 760 790" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="790" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">Expected answers come from an oracle that never calls the system under test</text>
+<g id="synthetic-data-kit"><rect x="24" y="56" width="340" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="80" font-size="13" font-weight="600" fill="#1F2328">Synthetic data kit</text>
+<text x="40" y="96" font-size="11.5" fill="#5B6470">Seeded generator: 10 documents, 80 courses,</text>
+<text x="40" y="112" font-size="11.5" fill="#5B6470">60 students, 952 attendance rows,</text>
+<text x="40" y="128" font-size="11.5" fill="#5B6470">738 result rows. 23 validation checks.</text>
+</g>
+<g id="independent-oracle"><rect x="396" y="56" width="340" height="88" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="412" y="80" font-size="13" font-weight="600" fill="#1F2328">Independent oracle</text>
+<text x="412" y="96" font-size="11.5" fill="#5B6470">Computes every expected value from the</text>
+<text x="412" y="112" font-size="11.5" fill="#5B6470">data files with exact fractions. It never</text>
+<text x="412" y="128" font-size="11.5" fill="#5B6470">calls the system under test.</text>
+</g>
+<path d="M194 144 L194 184" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M566 144 L566 184" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="111-evaluation-cases"><rect x="24" y="184" width="712" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="208" font-size="13" font-weight="600" fill="#1F2328">111 evaluation cases</text>
+<text x="40" y="224" font-size="11.5" fill="#5B6470">Policy facts 19, versions and conflicts 14, personal tool 31, multi-step 4, unanswerable 8, privacy 14,</text>
+<text x="40" y="240" font-size="11.5" fill="#5B6470">clarification 3, injection 13, robustness 5. Functional 98 plus red team 13.</text>
+</g>
+<path d="M380 256 L380 288" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="lane-run-all-111-cases-under-six-configurations"><rect x="24" y="288" width="712" height="100" rx="12" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/><text x="40" y="310" font-size="12" font-weight="600" fill="#5B6470">Run all 111 cases under six configurations</text></g>
+<g id="a"><rect x="36" y="318" width="106" height="56" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="52" y="342" font-size="13" font-weight="600" fill="#1F2328">A</text>
+<text x="52" y="358" font-size="11.5" fill="#5B6470">Baseline</text>
+</g>
+<g id="b"><rect x="152" y="318" width="106" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="168" y="342" font-size="13" font-weight="600" fill="#1F2328">B</text>
+<text x="168" y="358" font-size="11.5" fill="#5B6470">Fixed chunks</text>
+</g>
+<g id="c"><rect x="268" y="318" width="106" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="284" y="342" font-size="13" font-weight="600" fill="#1F2328">C</text>
+<text x="284" y="358" font-size="11.5" fill="#5B6470">Keyword only</text>
+</g>
+<g id="d"><rect x="384" y="318" width="106" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="400" y="342" font-size="13" font-weight="600" fill="#1F2328">D</text>
+<text x="400" y="358" font-size="11.5" fill="#5B6470">Vector only</text>
+</g>
+<g id="e"><rect x="500" y="318" width="106" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="516" y="342" font-size="13" font-weight="600" fill="#1F2328">E</text>
+<text x="516" y="358" font-size="11.5" fill="#5B6470">No reranker</text>
+</g>
+<g id="f"><rect x="616" y="318" width="106" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="632" y="342" font-size="13" font-weight="600" fill="#1F2328">F</text>
+<text x="632" y="358" font-size="11.5" fill="#5B6470">Top 3 only</text>
+</g>
+<path d="M194 388 L194 416" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M566 388 L566 416" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="score-each-case"><rect x="24" y="416" width="340" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="440" font-size="13" font-weight="600" fill="#1F2328">Score each case</text>
+<text x="40" y="456" font-size="11.5" fill="#5B6470">Exact match on values, answer type,</text>
+<text x="40" y="472" font-size="11.5" fill="#5B6470">cited documents and tool outputs</text>
+</g>
+<g id="measure-speed-and-cost"><rect x="396" y="416" width="340" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="412" y="440" font-size="13" font-weight="600" fill="#1F2328">Measure speed and cost</text>
+<text x="412" y="456" font-size="11.5" fill="#5B6470">Median and 95th percentile latency,</text>
+<text x="412" y="472" font-size="11.5" fill="#5B6470">language model calls per question</text>
+</g>
+<path d="M194 488 L194 520" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M566 488 L566 520" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="metrics"><rect x="24" y="520" width="712" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="544" font-size="13" font-weight="600" fill="#1F2328">Metrics</text>
+<text x="40" y="560" font-size="11.5" fill="#5B6470">Answer correctness, citation accuracy, abstention accuracy, false abstention rate, refusal recall,</text>
+<text x="40" y="576" font-size="11.5" fill="#5B6470">tool result correctness, retrieval hit rate at 5, latency percentiles, cost per question</text>
+</g>
+<path d="M380 592 L380 624" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="evaluation-report"><rect x="24" y="624" width="712" height="72" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="40" y="648" font-size="13" font-weight="600" fill="#1F2328">Evaluation report</text>
+<text x="40" y="664" font-size="11.5" fill="#5B6470">Per-category results, failure analysis, configuration comparison,</text>
+<text x="40" y="680" font-size="11.5" fill="#5B6470">and the justification for the final choice</text>
+</g>
+<text x="24" y="718" font-size="11.5" fill="#5B6470">No real embedding or language model ran here, so latency and cost exclude them.</text>
+<rect x="24" y="740" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="46" y="750" font-size="11.5" fill="#5B6470">Source of truth or baseline</text>
+<rect x="234.1175" y="740" width="16" height="12" rx="3" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="256.1175" y="750" font-size="11.5" fill="#5B6470">Deliverable</text>
+</svg>

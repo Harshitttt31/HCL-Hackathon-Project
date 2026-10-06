@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="652" viewBox="0 0 760 652" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="652" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">The model never writes a query: every data access is a named, validated tool</text>
+<g id="1--strict-input"><rect x="24" y="56" width="166" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="80" font-size="13" font-weight="600" fill="#1F2328">1  Strict input</text>
+<text x="40" y="96" font-size="11.5" fill="#5B6470">Unknown fields are</text>
+<text x="40" y="112" font-size="11.5" fill="#5B6470">rejected. No student</text>
+<text x="40" y="128" font-size="11.5" fill="#5B6470">identifier field</text>
+</g>
+<g id="2--identity"><rect x="206" y="56" width="166" height="88" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="222" y="80" font-size="13" font-weight="600" fill="#1F2328">2  Identity</text>
+<text x="222" y="96" font-size="11.5" fill="#5B6470">Personal tools use</text>
+<text x="222" y="112" font-size="11.5" fill="#5B6470">the identity in the</text>
+<text x="222" y="128" font-size="11.5" fill="#5B6470">request context</text>
+</g>
+<g id="3--run"><rect x="388" y="56" width="166" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="404" y="80" font-size="13" font-weight="600" fill="#1F2328">3  Run</text>
+<text x="404" y="96" font-size="11.5" fill="#5B6470">Parameterised queries</text>
+<text x="404" y="112" font-size="11.5" fill="#5B6470">or pure arithmetic.</text>
+<text x="404" y="128" font-size="11.5" fill="#5B6470">No generated queries</text>
+</g>
+<g id="4--strict-output"><rect x="570" y="56" width="166" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="586" y="80" font-size="13" font-weight="600" fill="#1F2328">4  Strict output</text>
+<text x="586" y="96" font-size="11.5" fill="#5B6470">Output is validated,</text>
+<text x="586" y="112" font-size="11.5" fill="#5B6470">then stored as a</text>
+<text x="586" y="128" font-size="11.5" fill="#5B6470">tool record</text>
+</g>
+<path d="M190 100.0 L206 100.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M372 100.0 L388 100.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M554 100.0 L570 100.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M380 144 L380 176" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="24" y="196" font-size="13" font-weight="600" fill="#1F2328">Allowlist of 14 tools</text>
+<g id="student-records--identity-required"><rect x="24" y="208" width="348" height="104" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="40" y="232" font-size="13" font-weight="600" fill="#1F2328">Student records (identity required)</text>
+<text x="40" y="248" font-size="11.5" fill="#5B6470">get_student_profile</text>
+<text x="40" y="264" font-size="11.5" fill="#5B6470">get_attendance</text>
+<text x="40" y="280" font-size="11.5" fill="#5B6470">get_results</text>
+</g>
+<g id="public-lookups"><rect x="388" y="208" width="348" height="104" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="404" y="232" font-size="13" font-weight="600" fill="#1F2328">Public lookups</text>
+<text x="404" y="248" font-size="11.5" fill="#5B6470">get_course</text>
+<text x="404" y="264" font-size="11.5" fill="#5B6470">get_source_metadata</text>
+<text x="404" y="280" font-size="11.5" fill="#5B6470">list_applicable_sources</text>
+<text x="404" y="296" font-size="11.5" fill="#5B6470">search_documents</text>
+</g>
+<g id="rules-and-calculators"><rect x="24" y="336" width="348" height="104" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="360" font-size="13" font-weight="600" fill="#1F2328">Rules and calculators</text>
+<text x="40" y="376" font-size="11.5" fill="#5B6470">get_rule</text>
+<text x="40" y="392" font-size="11.5" fill="#5B6470">calculate_attendance</text>
+<text x="40" y="408" font-size="11.5" fill="#5B6470">calculate_attendance_projection</text>
+<text x="40" y="424" font-size="11.5" fill="#5B6470">calculate_cgpa</text>
+</g>
+<g id="eligibility-decisions"><rect x="388" y="336" width="348" height="104" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="404" y="360" font-size="13" font-weight="600" fill="#1F2328">Eligibility decisions</text>
+<text x="404" y="376" font-size="11.5" fill="#5B6470">check_exam_eligibility</text>
+<text x="404" y="392" font-size="11.5" fill="#5B6470">check_placement_eligibility</text>
+<text x="404" y="408" font-size="11.5" fill="#5B6470">check_attendance_band</text>
+</g>
+<g id="lane-why-this-is-safe"><rect x="24" y="472" width="712" height="110" rx="12" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/><text x="40" y="494" font-size="12" font-weight="600" fill="#5B6470">Why this is safe</text></g>
+<text x="40" y="516" font-size="11.5" fill="#5B6470">The planner picks tools from the allowlist by intent; the language model never names a tool.</text>
+<text x="40" y="534" font-size="11.5" fill="#5B6470">Each tool opens the database with parameters, so there is no text-built query to inject into.</text>
+<text x="40" y="552" font-size="11.5" fill="#5B6470">The same student identifier is used for every call and comes from the header, not the question.</text>
+<text x="40" y="570" font-size="11.5" fill="#5B6470">Calculations use exact fractions, so exactly 75.00 percent is never rounded up or down by accident.</text>
+<rect x="24" y="602" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="46" y="612" font-size="11.5" fill="#5B6470">Needs a student identity</text>
+<rect x="215.66" y="602" width="16" height="12" rx="3" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="237.66" y="612" font-size="11.5" fill="#5B6470">Public or computed</text>
+</svg>

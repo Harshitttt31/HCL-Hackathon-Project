@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="816" viewBox="0 0 760 816" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="816" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">Seven checks run before any tool or document search; any yes refuses</text>
+<g id="1--another-student-s-identifier"><rect x="24" y="56" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="80" font-size="13" font-weight="600" fill="#1F2328">1  Another student's identifier?</text>
+<text x="40" y="96" font-size="11.5" fill="#5B6470">An id like S1234 that is not yours</text>
+</g>
+<path d="M464 84.0 L520 84.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="76.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="other-student"><rect x="520" y="56" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="80" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">other_student</text>
+<text x="536" y="96" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="2--bulk-or-class-wide-request"><rect x="24" y="136" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="160" font-size="13" font-weight="600" fill="#1F2328">2  Bulk or class-wide request?</text>
+<text x="40" y="176" font-size="11.5" fill="#5B6470">All students, toppers, class average</text>
+</g>
+<path d="M244.0 112 L244.0 136" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="130" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 164.0 L520 164.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="156.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="bulk-request"><rect x="520" y="136" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="160" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">bulk_request</text>
+<text x="536" y="176" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="3--a-known-student-s-name"><rect x="24" y="216" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="240" font-size="13" font-weight="600" fill="#1F2328">3  A known student's name?</text>
+<text x="40" y="256" font-size="11.5" fill="#5B6470">Any name except your own</text>
+</g>
+<path d="M244.0 192 L244.0 216" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="210" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 244.0 L520 244.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="236.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="other-student"><rect x="520" y="216" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="240" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">other_student</text>
+<text x="536" y="256" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="4--relation-word-plus-data"><rect x="24" y="296" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="320" font-size="13" font-weight="600" fill="#1F2328">4  Relation word plus data?</text>
+<text x="40" y="336" font-size="11.5" fill="#5B6470">Friend, roommate, his or her marks</text>
+</g>
+<path d="M244.0 272 L244.0 296" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="290" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 324.0 L520 324.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="316.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="other-student"><rect x="520" y="296" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="320" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">other_student</text>
+<text x="536" y="336" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="5--personal-question--no-identity"><rect x="24" y="376" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="400" font-size="13" font-weight="600" fill="#1F2328">5  Personal question, no identity?</text>
+<text x="40" y="416" font-size="11.5" fill="#5B6470">No header, or a malformed one</text>
+</g>
+<path d="M244.0 352 L244.0 376" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="370" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 404.0 L520 404.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="396.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="no-identity"><rect x="520" y="376" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="400" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">no_identity</text>
+<text x="536" y="416" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="6--identity-has-no-record"><rect x="24" y="456" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="480" font-size="13" font-weight="600" fill="#1F2328">6  Identity has no record?</text>
+<text x="40" y="496" font-size="11.5" fill="#5B6470">Header is valid but unknown</text>
+</g>
+<path d="M244.0 432 L244.0 456" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="450" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 484.0 L520 484.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="476.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="unknown-identity"><rect x="520" y="456" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="480" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">unknown_identity</text>
+<text x="536" y="496" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<g id="7--embedded-instructions-only"><rect x="24" y="536" width="440" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="560" font-size="13" font-weight="600" fill="#1F2328">7  Embedded instructions only?</text>
+<text x="40" y="576" font-size="11.5" fill="#5B6470">Instruction-like text, no real question</text>
+</g>
+<path d="M244.0 512 L244.0 536" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="530" font-size="11.5" fill="#5B6470">no</text>
+<path d="M464 564.0 L520 564.0" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="492.0" y="556.0" font-size="11.5" text-anchor="middle" fill="#5B6470">yes</text>
+<g id="prompt-injection"><rect x="520" y="536" width="216" height="56" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="536" y="560" font-size="13" font-weight="600" font-family="SFMono-Regular, Menlo, Consolas, monospace" fill="#1F2328">prompt_injection</text>
+<text x="536" y="576" font-size="11.5" fill="#5B6470">Refusal, no tool called</text>
+</g>
+<path d="M244.0 592 L244.0 616" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="254.0" y="610" font-size="11.5" fill="#5B6470">no</text>
+<g id="allowed--plan-the-route"><rect x="24" y="616" width="440" height="56" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="40" y="640" font-size="13" font-weight="600" fill="#1F2328">Allowed: plan the route</text>
+<text x="40" y="656" font-size="11.5" fill="#5B6470">Tools run with the header identity only</text>
+</g>
+<g id="lane-what-stays-true-on-every-path"><rect x="24" y="696" width="712" height="92" rx="12" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/><text x="40" y="718" font-size="12" font-weight="600" fill="#5B6470">What stays true on every path</text></g>
+<text x="40" y="740" font-size="11.5" fill="#5B6470">Identity comes only from the X-Student-Id header; text in the question never changes it.</text>
+<text x="40" y="758" font-size="11.5" fill="#5B6470">Refusals never reveal whether another student exists and never repeat the identifier.</text>
+<text x="40" y="776" font-size="11.5" fill="#5B6470">The audit record holds a keyed hash of the identifier and a redacted question.</text>
+</svg>

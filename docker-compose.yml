@@ -1,0 +1,57 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes:
+      - ollama_models:/root/.ollama
+    ports:
+      - "11434:11434"
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  ollama-pull:
+    image: ollama/ollama:latest
+    depends_on:
+      ollama:
+        condition: service_healthy
+    environment:
+      OLLAMA_HOST: http://ollama:11434
+    entrypoint: ["ollama", "pull", "llama3.1:8b"]
+    restart: "no"
+
+  api:
+    build: .
+    command: ["api"]
+    env_file: [.env]
+    environment:
+      SQLITE_PATH: /app/storage/university.db
+      CHROMA_PATH: /app/storage/chroma
+      OLLAMA_BASE_URL: http://ollama:11434
+    volumes:
+      - app_storage:/app/storage
+    ports:
+      - "8000:8000"
+    depends_on:
+      - ollama
+    healthcheck:
+      test: ["CMD", "curl", "-fs", "http://localhost:8000/health"]
+      interval: 20s
+      timeout: 10s
+      retries: 10
+
+  ui:
+    build: .
+    command: ["ui"]
+    environment:
+      API_URL: http://api:8000
+    env_file: [.env]
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+
+volumes:
+  ollama_models:
+  app_storage:

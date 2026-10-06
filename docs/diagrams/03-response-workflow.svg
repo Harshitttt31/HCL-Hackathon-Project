@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="842" viewBox="0 0 760 842" font-family="Inter, Helvetica, Arial, sans-serif">
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#9AA3AD"/></marker></defs>
+<rect width="760" height="842" fill="#FFFFFF"/>
+<text id="title" x="24" y="34" font-size="15" font-weight="600" fill="#1F2328">The answer is built from tool facts; the language model can only reword it</text>
+<path d="M136 144 L136 176" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M380 144 L380 176" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M624 144 L624 176" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="tool-findings"><rect x="24" y="56" width="224" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="80" font-size="13" font-weight="600" fill="#1F2328">Tool findings</text>
+<text x="40" y="96" font-size="11.5" fill="#5B6470">Records, calculations, rule</text>
+<text x="40" y="112" font-size="11.5" fill="#5B6470">values: calculated or</text>
+<text x="40" y="128" font-size="11.5" fill="#5B6470">retrieved_fact</text>
+</g>
+<g id="document-findings"><rect x="268" y="56" width="224" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="284" y="80" font-size="13" font-weight="600" fill="#1F2328">Document findings</text>
+<text x="284" y="96" font-size="11.5" fill="#5B6470">retrieved_fact, not_found,</text>
+<text x="284" y="112" font-size="11.5" fill="#5B6470">conflict_flagged,</text>
+<text x="284" y="128" font-size="11.5" fill="#5B6470">clarification_needed</text>
+</g>
+<g id="refusal-finding"><rect x="512" y="56" width="224" height="88" rx="8" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="528" y="80" font-size="13" font-weight="600" fill="#1F2328">Refusal finding</text>
+<text x="528" y="96" font-size="11.5" fill="#5B6470">refused: another student,</text>
+<text x="528" y="112" font-size="11.5" fill="#5B6470">bulk request, no identity,</text>
+<text x="528" y="128" font-size="11.5" fill="#5B6470">embedded instructions</text>
+</g>
+<g id="compose-the-draft"><rect x="24" y="176" width="712" height="72" rx="8" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/>
+<text x="40" y="200" font-size="13" font-weight="600" fill="#1F2328">Compose the draft</text>
+<text x="724" y="200" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">compose</text>
+<text x="40" y="216" font-size="11.5" fill="#5B6470">Pick the answer type by priority: refused, conflict_flagged, clarification_needed, calculated,</text>
+<text x="40" y="232" font-size="11.5" fill="#5B6470">retrieved_fact, not_found. Merge text, citations, applied rules, conflicts and explanation.</text>
+</g>
+<path d="M380 248 L380 280" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="392" y="268" font-size="11.5" fill="#5B6470">draft, citations, allowed facts</text>
+<g id="reword-the-draft"><rect x="220" y="280" width="320" height="72" rx="8" fill="#FCEFD9" stroke="#C26A00" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="236" y="304" font-size="13" font-weight="600" fill="#1F2328">Reword the draft</text>
+<text x="528" y="304" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">generate</text>
+<text x="236" y="320" font-size="11.5" fill="#5B6470">Optional language model rewrites</text>
+<text x="236" y="336" font-size="11.5" fill="#5B6470">the draft. Skipped for refusals.</text>
+</g>
+<path d="M380 352 L380 376" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="validation-gate"><polygon points="270,420 380,376 490,420 380,464" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="2"/><text x="380" y="417" font-size="13" text-anchor="middle" fill="#1F2328">Numbers and ids</text><text x="380" y="434" font-size="13" text-anchor="middle" fill="#1F2328">match the facts?</text></g>
+<g id="use-the-code-draft"><rect x="24" y="392" width="170" height="72" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="40" y="416" font-size="13" font-weight="600" fill="#1F2328">Use the code draft</text>
+<text x="40" y="432" font-size="11.5" fill="#5B6470">Reworded text is</text>
+<text x="40" y="448" font-size="11.5" fill="#5B6470">discarded</text>
+</g>
+<path d="M270 420 L194 420" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="232" y="412" font-size="11.5" text-anchor="middle" fill="#5B6470">no</text>
+<g id="validator-checks"><rect x="566" y="376" width="170" height="88" rx="8" fill="#F5F6F8" stroke="#C9CED4" stroke-width="1"/>
+<text x="582" y="400" font-size="13" font-weight="600" fill="#1F2328">Validator checks</text>
+<text x="582" y="416" font-size="11.5" fill="#5B6470">Numbers and ids in</text>
+<text x="582" y="432" font-size="11.5" fill="#5B6470">the tool facts</text>
+<text x="582" y="448" font-size="11.5" fill="#5B6470">Verdict must not flip</text>
+</g>
+<path d="M566 420 L490 420" fill="none" stroke="#9AA3AD" stroke-width="1.25" stroke-dasharray="4 4"/>
+<path d="M380 464 L380 496" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<text x="392" y="484" font-size="11.5" fill="#5B6470">yes</text>
+<g id="build-the-response"><rect x="200" y="496" width="360" height="88" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="216" y="520" font-size="13" font-weight="600" fill="#1F2328">Build the response</text>
+<text x="548" y="520" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">finalize</text>
+<text x="216" y="536" font-size="11.5" fill="#5B6470">trace_id, answer, answer_type, citations,</text>
+<text x="216" y="552" font-size="11.5" fill="#5B6470">tools_invoked, applied_rules, conflicts_detected,</text>
+<text x="216" y="568" font-size="11.5" fill="#5B6470">explanation, as_of_date</text>
+</g>
+<path d="M109 448 L109 540 L200 540" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<path d="M380 584 L380 616" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="write-the-audit-record"><rect x="220" y="616" width="320" height="56" rx="8" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="236" y="640" font-size="13" font-weight="600" fill="#1F2328">Write the audit record</text>
+<text x="528" y="640" font-size="10.5" font-family="SFMono-Regular, Menlo, Consolas, monospace" text-anchor="end" fill="#5B6470">finalize</text>
+<text x="236" y="656" font-size="11.5" fill="#5B6470">Hashed student id, redacted question</text>
+</g>
+<path d="M380 672 L380 704" fill="none" stroke="#9AA3AD" stroke-width="1.25" marker-end="url(#arrow)"/>
+<g id="return-the-response"><rect x="220" y="704" width="320" height="56" rx="8" fill="none" stroke="#9AA3AD" stroke-width="1.25"/>
+<text x="236" y="728" font-size="13" font-weight="600" fill="#1F2328">Return the response</text>
+<text x="236" y="744" font-size="11.5" fill="#5B6470">Same fields as the fixed contract</text>
+</g>
+<rect x="24" y="792" width="16" height="12" rx="3" fill="#E6EEFB" stroke="#2F6FDE" stroke-width="1.5"/>
+<text x="46" y="802" font-size="11.5" fill="#5B6470">Control</text>
+<rect x="111.0675" y="792" width="16" height="12" rx="3" fill="#FCEFD9" stroke="#C26A00" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="133.0675" y="802" font-size="11.5" fill="#5B6470">Language model</text>
+<rect x="241.2025" y="792" width="16" height="12" rx="3" fill="#E3F4EC" stroke="#1F8A5B" stroke-width="1.5"/>
+<text x="263.2025" y="802" font-size="11.5" fill="#5B6470">Data written</text>
+<rect x="359.03249999999997" y="792" width="16" height="12" rx="3" fill="#FBE5E2" stroke="#C0392B" stroke-width="1.5"/>
+<text x="381.03249999999997" y="802" font-size="11.5" fill="#5B6470">Refusal</text>
+</svg>
