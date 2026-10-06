@@ -54,9 +54,32 @@ $env:API_URL="http://127.0.0.1:8000"
 .\.venv\Scripts\python.exe -m streamlit run app\frontend\streamlit_app.py
 ```
 
-Open http://localhost:8501. `GET http://127.0.0.1:8000/health` should show `"llm_backend":"ollama","llm":"ok"`. To check the model is
+Open http://localhost:8000/ for the web interface (sign in as `S1001` / `student123`), or http://localhost:8501 for the older
+Streamlit page. `GET http://127.0.0.1:8000/health` should show `"llm_backend":"ollama","llm":"ok"`. To check the model is
 really used, ask a question and open `/audit/{trace_id}`: `llm.used_for_wording` is `true` when the model's wording passed validation.
 On macOS/Linux use `.venv/bin/python` and `cp` instead.
+
+### Web interface and sign-in (JWT)
+
+The API serves the web interface itself: start uvicorn and open http://localhost:8000/ (no separate front-end server or build step;
+the files are in `app/web/`). Students sign in with their ID (e.g. `S1001`); the first sign-in uses `DEMO_STUDENT_PASSWORD`
+(default `student123`) and creates the account, after which the password can be changed from the user menu. The administrator
+account is created on its first sign-in from `ADMIN_USERNAME` / `ADMIN_PASSWORD`. Pages: Ask (with citations, conflict resolution,
+calculations and the audit record for every answer), My records (attendance against the minimum rule, results, CGPA), Sources, and
+Admin (add documents, load CSVs, open audit records).
+
+| Endpoint | Purpose |
+|---|---|
+| `POST /auth/login` | `{username, password}` → `{access_token, token_type: "bearer", expires_in, user}` |
+| `GET /auth/me` | The signed-in user |
+| `POST /auth/change-password` | `{current_password, new_password}` (at least 8 characters) |
+| `GET /me/overview` | The signed-in student's profile, attendance and results (same deterministic tools as `/ask`) |
+
+Tokens are HS256, signed with `JWT_SECRET`, valid for `JWT_EXPIRE_MINUTES`, and carry only the username, role and student ID.
+Passwords are stored as PBKDF2-SHA256 hashes; five failed sign-ins lock an account for five minutes. With a token, `/ask` takes the
+student identity from the token, and an `X-Student-Id` that disagrees with it is refused (403). An administrator token opens the admin
+endpoints and any audit record, but carries no student identity. **`X-Student-Id` still works without a token**, because the participant
+guide fixes it as the `/ask` contract; set `AUTH_REQUIRED=true` to accept only tokens.
 
 ### Using Ollama Cloud (no local model or GPU needed)
 

@@ -141,6 +141,17 @@ CREATE TABLE IF NOT EXISTS ingestion_log (
     details   TEXT
 );
 
+-- Sign-in accounts for the web interface (JWT). Passwords are stored only as PBKDF2 hashes.
+CREATE TABLE IF NOT EXISTS users (
+    username       TEXT PRIMARY KEY,
+    password_hash  TEXT NOT NULL,
+    role           TEXT NOT NULL CHECK (role IN ('student','admin')),
+    student_id     TEXT UNIQUE REFERENCES students(student_id) ON DELETE CASCADE,
+    created_at     TEXT NOT NULL,
+    last_login_at  TEXT,
+    CHECK ((role = 'student') = (student_id IS NOT NULL))
+);
+
 CREATE TABLE IF NOT EXISTS embedding_cache (
     model      TEXT NOT NULL,
     text_hash  TEXT NOT NULL,

@@ -22,6 +22,17 @@ def isolated_env(tmp_path, monkeypatch):
     monkeypatch.setenv("EMBEDDING_BACKEND", "hashing")
     monkeypatch.setenv("AUDIT_SALT", "test-salt")
     monkeypatch.setenv("AS_OF_DATE_OVERRIDE", "")
+    # pin auth settings so a developer's .env cannot change test behaviour
+    monkeypatch.setenv("ADMIN_TOKEN", "")
+    monkeypatch.setenv("AUTH_REQUIRED", "false")
+    monkeypatch.setenv("JWT_SECRET", "test-jwt-secret-that-is-long-enough-for-hs256")
+    monkeypatch.setenv("JWT_EXPIRE_MINUTES", "60")
+    monkeypatch.setenv("DEMO_STUDENT_PASSWORD", "student123")
+    monkeypatch.setenv("ADMIN_USERNAME", "admin")
+    monkeypatch.setenv("ADMIN_PASSWORD", "admin-pass-123")
+    monkeypatch.setenv("LOGIN_MAX_FAILURES", "5")
+    from app.auth import service as auth_service
+    auth_service.lockout._state.clear()
     from app.core import config
     config.reset_settings_cache()
     from app.database import sqlite

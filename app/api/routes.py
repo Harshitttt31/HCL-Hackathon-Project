@@ -8,8 +8,9 @@ from fastapi import APIRouter, Depends, File, Form, Header, HTTPException, Uploa
 from pydantic import ValidationError
 
 from app.agent.service import AssistantService
-from app.api.deps import get_ingestion, get_service, require_admin
+from app.api.deps import get_ingestion, get_principal, get_service, require_admin, resolve_student_id
 from app.api.schemas import AskRequest, AskResponse, HealthResponse, IngestResponse, SourceOut
+from app.auth.service import Principal
 from app.core.config import get_settings
 from app.core.errors import ParseError, ValidationFailed
 from app.core.logging import get_logger
@@ -27,10 +28,10 @@ router = APIRouter()
 
 
 @router.post("/ask", response_model=AskResponse, tags=["assistant"])
-def ask(body: AskRequest, x_student_id: Optional[str] = Header(default=None), service: AssistantService = Depends(get_service)):
-    """Answer a question. The student identity comes only from the X-Student-Id header."""
+def ask(body: AskRequest, student_id: Optional[str] = Depends(resolve_student_id), service: AssistantService = Depends(get_service)):
+    """Answer a question. The student identity comes only from the request context: a Bearer token, or the X-Student-Id header."""
     try:
-        return service.ask(body.question, x_student_id, body.as_of_date)
+        return service.ask(body.question, student_id, body.as_of_date)
     except ValidationFailed as exc:
         raise HTTPException(status_code=422, detail=exc.errors)
 
@@ -80,19 +81,19 @@ def health(service: AssistantService = Depends(get_service)):
 
 
 @router.get("/audit/{trace_id}", tags=["operations"])
-def audit(trace_id: str, x_student_id: Optional[str] = Header(default=None), x_admin_token: Optional[str] = Header(default=None),
-          service: AssistantService = Depends(get_service)):
-    """Full decision record. Readable by the student it belongs to (X-Student-Id) or by an administrator."""
+def audit(trace_id: str, principal: Optional[Principal] = Depends(get_principal), student_id: Optional[str] = Depends(resolve_student_id),
+          x_admin_token: Optional[str] = Header(default=None), service: AssistantService = Depends(get_service)):
+    """Full decision record. Readable by the student it belongs to or by an administrator."""
     if not trace_id.isalnum() or len(trace_id) > 32:
         raise HTTPException(status_code=404, detail="no audit record with this trace_id")
     rec = service.deps.audit.read(trace_id)
     if rec is None:
         raise HTTPException(status_code=404, detail="no audit record with this trace_id")
     token = get_settings().admin_token
-    is_admin = bool(token and constant_time_equals(x_admin_token, token))
+    is_admin = (principal is not None and principal.role == "admin") or bool(token and constant_time_equals(x_admin_token, token))
     owner = rec.get("student_id_hash")
     if owner and not is_admin:
-        caller = hash_student_id(normalize_student_id(x_student_id))
+        caller = hash_student_id(normalize_student_id(student_id))
         if not caller or caller != owner:
             raise HTTPException(status_code=403, detail="this audit record belongs to a different student")
     return rec
