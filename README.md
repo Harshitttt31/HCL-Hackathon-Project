@@ -58,6 +58,19 @@ Open http://localhost:8501. `GET http://127.0.0.1:8000/health` should show `"llm
 really used, ask a question and open `/audit/{trace_id}`: `llm.used_for_wording` is `true` when the model's wording passed validation.
 On macOS/Linux use `.venv/bin/python` and `cp` instead.
 
+### Using Ollama Cloud (no local model or GPU needed)
+
+Set `LLM_BACKEND=ollama`, `MOCK_LLM=false`, `OLLAMA_BASE_URL=https://ollama.com`, `OLLAMA_API_KEY=<your key>` and a cloud model,
+e.g. `LLM_MODEL=gemma4:31b` (list: `curl https://ollama.com/api/tags -H "Authorization: Bearer <key>"`). Skip `ollama pull`; answers
+take a few seconds instead of minutes on a CPU-only laptop.
+
+### Using the Claude API instead of Ollama
+
+Set `LLM_BACKEND=anthropic`, `MOCK_LLM=false` and `ANTHROPIC_API_KEY=<your key>` in `.env` (never commit it; `.env` is git-ignored).
+Optional: `ANTHROPIC_MODEL` (default `claude-opus-5-5`) and `ANTHROPIC_EFFORT` (default `low`; the model only rewords verified
+answers, so low effort is enough). Requests opt into server-side refusal fallbacks (`fallbacks="default"`). Any API failure falls back
+to the template answer, exactly as with Ollama, and the wording validator still checks every reworded answer.
+
 Run the checks:
 
 ```bash

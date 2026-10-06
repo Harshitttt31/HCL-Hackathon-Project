@@ -36,16 +36,23 @@ class Settings(BaseSettings):
     chroma_collection_prefix: str = "university_chunks"
 
     # --- LLM -------------------------------------------------------------------------
-    # "ollama" (default, local), "mock" (deterministic, no model needed), "cloud" (optional fallback)
-    llm_backend: Literal["ollama", "mock", "cloud"] = "ollama"
+    # "ollama" (default, local), "anthropic" (Claude API), "mock" (deterministic, no model needed), "cloud" (optional fallback)
+    llm_backend: Literal["ollama", "anthropic", "mock", "cloud"] = "ollama"
     mock_llm: bool = False  # convenience switch; forces llm_backend="mock"
     llm_model: str = "llama3.1:8b"
     ollama_base_url: str = "http://localhost:11434"
+    # Ollama Cloud: set OLLAMA_BASE_URL=https://ollama.com and this key (sent as a Bearer token). Not needed for a local server.
+    ollama_api_key: Optional[str] = None
     llm_timeout_seconds: float = 60.0
     llm_temperature: float = 0.0
     llm_max_retries: int = 1
     # Ollama "think" flag for reasoning models (e.g. qwen3). None leaves the model default; false skips the reasoning trace.
     llm_think: Optional[bool] = None
+    # Claude API (LLM_BACKEND=anthropic). The key may also come from the ANTHROPIC_API_KEY environment variable.
+    anthropic_api_key: Optional[str] = None
+    anthropic_model: str = "claude-opus-5-5"
+    # Wording and tie-breaking are short tasks; low effort keeps latency and cost down.
+    anthropic_effort: Literal["low", "medium", "high", "xhigh", "max"] = "low"
     # Optional cloud fallback (OpenAI-compatible). Disabled unless explicitly configured.
     cloud_llm_base_url: Optional[str] = None
     cloud_llm_api_key: Optional[str] = None

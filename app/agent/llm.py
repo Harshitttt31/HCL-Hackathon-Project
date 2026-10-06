@@ -1,7 +1,7 @@
 """LLM access. The LLM is an optional, constrained helper: it may reword a deterministic answer or break a tie
 between allowlisted intents. It never supplies a fact, a number, a citation or a decision.
 
-Backends: ollama (local, default), cloud (optional OpenAI-compatible fallback), mock (deterministic, no model).
+Backends: ollama (local, default), anthropic (Claude API), cloud (optional OpenAI-compatible fallback), mock (deterministic, no model).
 Every call returns None on failure so the caller can use its deterministic fallback.
 """
 from __future__ import annotations
@@ -92,6 +92,7 @@ class OllamaLLM(LLMClient):
         self.temperature = s.llm_temperature
         self.retries = max(0, s.llm_max_retries)
         self.think = s.llm_think
+        self.headers = {"Authorization": f"Bearer {s.ollama_api_key}"} if s.ollama_api_key else {}
         self._down_until = 0.0
 
     def complete_json(self, system: str, user: str) -> Optional[dict[str, Any]]:
@@ -104,7 +105,7 @@ class OllamaLLM(LLMClient):
             payload["think"] = self.think
         for attempt in range(self.retries + 1):
             try:
-                r = httpx.post(f"{self.base_url}/api/chat", json=payload, timeout=self.timeout)
+                r = httpx.post(f"{self.base_url}/api/chat", json=payload, headers=self.headers, timeout=self.timeout)
                 r.raise_for_status()
                 obj = extract_json(r.json().get("message", {}).get("content", ""))
                 if obj is not None:
@@ -118,10 +119,79 @@ class OllamaLLM(LLMClient):
 
     def healthy(self) -> bool:
         try:
-            r = httpx.get(f"{self.base_url}/api/tags", timeout=3.0)
+            r = httpx.get(f"{self.base_url}/api/tags", headers=self.headers, timeout=3.0)
             return r.status_code == 200
         except httpx.HTTPError:
             return False
+
+
+class AnthropicLLM(LLMClient):
+    """Claude via the official Anthropic SDK. Same contract as the others: a parsed JSON object, or None on any failure."""
+
+    name = "anthropic"
+
+    def __init__(self) -> None:
+        import anthropic  # imported here so the other backends run without the package
+
+        s = get_settings()
+        self._anthropic = anthropic
+        self.model = s.anthropic_model
+        self.effort = s.anthropic_effort
+        # api_key=None lets the SDK resolve ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN / an `ant auth login` profile.
+        self.client = anthropic.Anthropic(api_key=s.anthropic_api_key or None, timeout=s.llm_timeout_seconds,
+                                          max_retries=max(0, s.llm_max_retries))
+        self._down_until = 0.0
+        self._health: tuple[float, bool] = (0.0, False)
+
+    def complete_json(self, system: str, user: str) -> Optional[dict[str, Any]]:
+        if time.monotonic() < self._down_until:
+            return None
+        a = self._anthropic
+        try:
+            # fallbacks="default": if a safety classifier declines, the API re-runs the request on a fallback model.
+            r = self.client.beta.messages.create(
+                model=self.model, max_tokens=16000, system=system,
+                messages=[{"role": "user", "content": user}],
+                output_config={"effort": self.effort},
+                betas=["server-side-fallback-2026-07-01"], fallbacks="default",
+            )
+        except TypeError as exc:  # the SDK raises this when no API key or profile can be resolved
+            log.warning("llm_call_rejected", extra={"error": str(exc)[:200]})
+            self._down_until = time.monotonic() + 60.0
+            return None
+        except (a.AuthenticationError, a.PermissionDeniedError, a.NotFoundError, a.BadRequestError) as exc:
+            log.warning("llm_call_rejected", extra={"status": exc.status_code, "error": str(exc)[:200]})
+            self._down_until = time.monotonic() + 60.0  # configuration problem: do not retry on every request
+            return None
+        except a.APIStatusError as exc:
+            log.warning("llm_call_failed", extra={"status": exc.status_code, "error": str(exc)[:200]})
+            self._down_until = time.monotonic() + 15.0
+            return None
+        except a.APIConnectionError as exc:  # includes timeouts
+            log.warning("llm_call_failed", extra={"error": str(exc)[:200]})
+            self._down_until = time.monotonic() + 15.0
+            return None
+        if r.stop_reason == "refusal":
+            log.warning("llm_refused", extra={"request_id": r._request_id})
+            return None
+        text = "".join(b.text for b in r.content if b.type == "text")
+        obj = extract_json(text)
+        if obj is None:
+            log.warning("llm_invalid_json", extra={"request_id": r._request_id, "stop_reason": r.stop_reason})
+        return obj
+
+    def healthy(self) -> bool:
+        # /health is polled by the UI; cache the check for a minute.
+        checked_at, ok = self._health
+        if time.monotonic() - checked_at < 60.0:
+            return ok
+        try:
+            self.client.with_options(timeout=5.0, max_retries=0).models.retrieve(self.model)
+            ok = True
+        except (self._anthropic.APIError, TypeError):  # TypeError: no credentials configured
+            ok = False
+        self._health = (time.monotonic(), ok)
+        return ok
 
 
 class CloudLLM(LLMClient):
@@ -220,6 +290,8 @@ def get_llm() -> LLMClient:
                 _client = MockLLM()
             elif backend == "cloud":
                 _client = CloudLLM()
+            elif backend == "anthropic":
+                _client = AnthropicLLM()
             else:
                 cloud = CloudLLM() if (s.cloud_llm_base_url and s.cloud_llm_api_key and s.cloud_llm_model) else None
                 _client = FallbackLLM(OllamaLLM(), cloud) if cloud else OllamaLLM()
